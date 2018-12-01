@@ -6,6 +6,7 @@ git checkout master
 cd ../
 mv .deploy_git/.git/ ./public/
 cd ./public
+echo lightquantum.xyz > CNAME
 git config user.name "PhotonQuantum"
 git config user.email "cy.n01@outlook.com" 
 git add .
