@@ -11,6 +11,8 @@ before_install:
     - export TZ='Asia/Shanghai'
     - npm install hexo-cli -g
     - chmod +x ./publish.sh
+    - chmod +x ./setup.sh
+    - ./setup.sh
 after_script:
     - ./publish.sh
 script:
