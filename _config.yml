@@ -12,7 +12,7 @@ timezone: Asia/Shanghai
 # custom Site settings
 # more detail check out docs
 SEOTitle: 一颗正在寻求解脱的迷茫心灵 
-header-img: //o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg
+header-img: bg.jpg
 email: cy.n01@outlook.com
 description: LightQuantum 在 Github 和 Coding 上的心灵花园
 keyword: 
@@ -153,8 +153,8 @@ cdn-url:  # 你的CDN地址
 # More info http://developer.qiniu.com/code/v6/api/kodo-api/image/imageview2.html
 
 # post default images
-post-default-img: #博文默认的图片
-post-default-img-mobile: #移动端显示的图片
+post-default-img: bg.jpg
+post-default-img-mobile: bg.jpg
 
 # search api , set your custom key
 swiftype_key: 
