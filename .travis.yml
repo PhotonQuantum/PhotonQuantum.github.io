@@ -1,0 +1,27 @@
+language: node_js
+node_js: stable
+cache:
+    apt: true
+    # directories:
+    #     - node_modules
+install:
+    - npm install
+    - npm rebuild node-sass --force
+before_install:
+    - export TZ='Asia/Shanghai'
+    - npm install hexo-cli -g
+    - chmod +x ./publish.sh
+after_script:
+    - ./publish.sh
+script:
+    - hexo clean
+    - hexo g
+branches:
+    only:
+        - hexo
+env:
+    global:
+        # Github Pages
+        - GH_REF: github.com/PhotonQuantum/PhotonQuantum.github.io.git
+        # Coding Pages
+        - CO_REF: git.dev.tencent.com/PhotonQuantum/lightquantum.xyz.git
