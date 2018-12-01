@@ -36,3 +36,14 @@ social:
   - name: Bilibili
     icon: bilibili
     link: http://space.bilibili.com/28934599
+
+duoshuo:
+  enable: false
+  siteName: ueibo
+
+copyright:
+  record: false
+  hexo: true
+  laughing: true
+
+content_width: 600
