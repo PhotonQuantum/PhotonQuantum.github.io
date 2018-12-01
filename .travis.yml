@@ -2,8 +2,8 @@ language: node_js
 node_js: stable
 cache:
     apt: true
-    # directories:
-    #     - node_modules
+    directories:
+        - node_modules
 install:
     - npm install
     - npm rebuild node-sass --force
