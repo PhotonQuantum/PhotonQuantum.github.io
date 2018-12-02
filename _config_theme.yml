@@ -1,13 +1,13 @@
 
-favicon: /favicon.ico
+favicon: favicon.ico
 ## 页面背景
-page_background: /bg.jpg
+page_background: bg.jpg
 
 ## 页面菜单按钮风格
 page_menu_button: dark
 
 ## 文章背景
-post_background: /bg.jpg
+post_background: bg.jpg
 
 ## 文章菜单按钮风格
 post_menu_button: light
@@ -21,9 +21,9 @@ author:
 
 ## 自定义菜单
 navication:
-  - name: Home
-    link: https://lightquantum.xyz
-  - name: qwq.cool's blog
+  - name: About
+    link: https://lightquantum.xyz/About
+  - name: 独角兽的梦
     link: https://qwq.cool
 
 social:
@@ -46,4 +46,4 @@ copyright:
   hexo: true
   laughing: true
 
-content_width: 600
+content_width: 1000
