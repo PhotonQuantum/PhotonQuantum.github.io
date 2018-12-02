@@ -21,8 +21,6 @@ author:
 
 ## 自定义菜单
 navication:
-  - name: About
-    link: https://lightquantum.xyz/About
   - name: 独角兽的梦
     link: https://qwq.cool
 
