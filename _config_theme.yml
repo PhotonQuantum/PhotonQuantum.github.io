@@ -1,13 +1,13 @@
 
 favicon: favicon.ico
 ## 页面背景
-page_background: sources/bg.jpg
+page_background: images/bg.jpg
 
 ## 页面菜单按钮风格
 page_menu_button: dark
 
 ## 文章背景
-post_background: sources/bg.jpg
+post_background: images/bg.jpg
 
 ## 文章菜单按钮风格
 post_menu_button: light
