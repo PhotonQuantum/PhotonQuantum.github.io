@@ -7,7 +7,7 @@ page_background: images/bg.jpg
 page_menu_button: dark
 
 ## 文章背景
-post_background: images/bg_post.jpg
+post_background: /images/bg_post.jpg
 
 ## 文章菜单按钮风格
 post_menu_button: light
