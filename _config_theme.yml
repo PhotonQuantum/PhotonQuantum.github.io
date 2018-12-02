@@ -1,7 +1,7 @@
 
 favicon: favicon.ico
 ## 页面背景
-page_background: images/bg.jpg
+page_background: /images/bg.jpg
 
 ## 页面菜单按钮风格
 page_menu_button: dark
