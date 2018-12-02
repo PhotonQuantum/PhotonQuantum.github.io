@@ -3,6 +3,8 @@ title: Letter Song
 date: 2018-04-01 14:34:00
 tags:
   - 摘抄
+categories:
+  - 心灵花园
 ---
 <center>
 好きな人と歩いた場所も

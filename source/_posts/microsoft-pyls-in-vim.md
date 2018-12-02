@@ -3,12 +3,18 @@ title: Vim 下使用 Microsoft Python Language Server 补全
 date: 2018-12-01 12:54:00
 tags:
   - 技术
+categories:
+  - 技术杂谈
 ---
 
 > 自从上次咕咕咕之后，博客又长草了三个月（逃。当然，我也没想到咕咕咕之后写的第一篇文章竟然是一篇技术文。等等，我最初开这个博客的目的就是写点杂七杂八的技术吧？那我写一些技术类的东西也不会显得奇怪吧？呐？不会吧？（一个作着文青梦的理工生突然醒悟）啊，意识流的内容我也没想断更，具体以后会写什么东西还是随缘233
 
 ## 初衷
-首先我是个 Vim 教徒，在 Vim 下写 Python 也写了一年多了。自然，Python 补全肯定是一直在用的。我之前用的一直是基于 Jedi 的补全方案，效果也不错，就是补全出现速度稍微有一点～点慢。不过由于用了异步的补全框架 [ncm2/ncm2](https://github.com/ncm2/ncm2)，所以觉得海星（这里先提一个醒，我之前一直在用的 [Shougo/deoplete](https://github.com/Shougo/deoplete.nvim) 有坑，用起来觉得超级卡，还甩锅 Jedi，等换了 ncm2 之后丝般顺滑...）。最近发现微软造了个新轮子，把 VS Studio 里的 Python 语义补全拿出来了，听说效果很不错，而且已经有 Emacs 社区的大神成功将其引入 Emacs（中文：[Emacs China](https://emacs-china.org/t/microsoft-python-language-server/7665) 英语：[vxlabs](https://vxlabs.com/2018/11/19/configuring-emacs-lsp-mode-and-microsofts-visual-studio-code-python-language-server/)）。听已经用上的人说，补全速度极快，而且由于用的是 C#，后台是多线程进行分析的，效率很高。这激起了我想在 Vim 上吃上微软 Python 补全螃蟹的欲望。
+首先我是个 Vim 教徒，在 Vim 下写 Python 也写了一年多了。自然，Python 补全肯定是一直在用的。我之前用的一直是基于 Jedi 的补全方案，效果也不错，就是补全出现速度稍微有一点～点慢。不过由于用了异步的补全框架 [ncm2/ncm2](https://github.com/ncm2/ncm2)，所以觉得海星（这里先提一个醒，我之前一直在用的 [Shougo/deoplete](https://github.com/Shougo/deoplete.nvim) 有坑，用起来觉得超级卡，还甩锅 Jedi，等换了 ncm2 之后丝般顺滑...）。
+
+<!-- more -->
+
+最近发现微软造了个新轮子，把 VS Studio 里的 Python 语义补全拿出来了，听说效果很不错，而且已经有 Emacs 社区的大神成功将其引入 Emacs（中文：[Emacs China](https://emacs-china.org/t/microsoft-python-language-server/7665) 英语：[vxlabs](https://vxlabs.com/2018/11/19/configuring-emacs-lsp-mode-and-microsofts-visual-studio-code-python-language-server/)）。听已经用上的人说，补全速度极快，而且由于用的是 C#，后台是多线程进行分析的，效率很高。这激起了我想在 Vim 上吃上微软 Python 补全螃蟹的欲望。
 
 ## LSP
 既然 Microsoft Python Language Server（下称 mspyls）是微软实现的，它的通讯接口自然是微软自己提出的 Language Server Protocol（下称 lsp）。这个协议正在逐渐成为各类补全服务的通用统一协议。对于 lsp 的详细介绍，可以从[这个](https://langserver.org/)地方了解。简单地来说，它可以让语言分析实现和前台的 IDE 或者文本编辑器分离，让文本编辑部分和语言补全分析部分解耦，从而可以任意搭配。也就是说，如果我想在 Vim 上补全 Python，我既可以用 mspyls，也可以用 jedi。反过来，如果我想用 mspyls 补全，我既可以用 Vim，也可以用 Emacs， 当然 VSCode 和 Atom 什么的都可以。正是因为这个原因，mspyls 有强大的泛用性，可以很容易地在 Vim 上跑起来。

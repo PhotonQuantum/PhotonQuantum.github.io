@@ -4,8 +4,8 @@ date: 2017-11-29 19:18:00
 tags:
   - 想法
   - 牢骚
-typora-root-url: ..
-typora-copy-images-to: ../images
+categories:
+  - 心灵花园
 ---
 
 这篇文章纯属口胡，仅供自己记录所用。

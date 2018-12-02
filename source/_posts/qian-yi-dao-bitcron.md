@@ -1,9 +1,11 @@
 ---
-Title: 迁移到 Bitcron
+title: 迁移到 Bitcron
 date: 2018-04-23 17:23
 tags:
   - 维护
   - 技术
+categories:
+  - 流水账
 ---
 
 在博客长久的长草和走出心情的低谷之后，本来想着要更新博客了，结果意外发现原来的服务器因为欠费停机了！woc 因为阿里云的短信提示被绑定到了同学手机上，等同学发现之后服务器已经没了。。气死了。。还好之前的[博客结构设计](/post/articles/chong-shi-bo-ke-yu-qian-yi-zhi-hexo)中博客的主体文本和图片是放在 Dropbox 上的，所有的博客数据得以恢复。

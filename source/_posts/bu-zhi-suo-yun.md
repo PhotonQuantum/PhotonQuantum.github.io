@@ -4,6 +4,8 @@ date: 2018-03-25
 tags:
   - 负能
   - 想法
+categories:
+  - 心灵花园
 ---
 和同学聊天。突然想起了我们的第一台的 FoAoN QiAnG 服务器。
 

@@ -3,8 +3,8 @@ title: 博客与迷茫
 date: 2018-01-14 14:56:13
 tags:
   - 想法
-typora-root-url: ..
-typora-copy-images-to: ../images
+categories:
+  - 心灵花园
 ---
 
 现在在想我写博客的目的到底是什么呢？
