@@ -14,7 +14,7 @@ categories:
 
 ## 正确使用 Vim
 
-很多人质疑说，在21世纪，我们根本没有必要使用这种带模式的文本编辑器。这种说法我就不太认同。毕竟，一般人在使用类似 VSCode 的编辑器的时候，都或多或少地接触了模式编辑的概念：使用键盘的时候为 Insert 模式，使用鼠标的时候为 Normal 模式。而鼠标很多时候并不是一个很好的定位工具，因为文本的特殊性，使用键盘来定位内容比使用鼠标更为快捷和精准，并且用终端的时候，鼠标控制更是不可能的。
+很多人质疑说，在 21 世纪，我们根本没有必要使用这种带模式的文本编辑器。这种说法我就不太认同。毕竟，一般人在使用类似 VSCode 的编辑器的时候，都或多或少地接触了模式编辑的概念：使用键盘的时候为 Insert 模式，使用鼠标的时候为 Normal 模式。而鼠标很多时候并不是一个很好的定位工具，因为文本的特殊性，使用键盘来定位内容比使用鼠标更为快捷和精准，并且用终端的时候，鼠标控制更是不可能的。
 
 还有的人热衷于配置 Vim 将其当作一个全能的 IDE 使用，也有人就此抨击说 Vim 永远也做不到类似大型 IDE 一般的体验。就我个人而言，Vim 的定位就不是一个 IDE，该用 IDE 的时候就用专业的产品，而 Vim 这种工具更像瑞士军刀，启动加载快捷操作方便，在修改一般文本配置文件和写一些小型的脚本语言工具的时候有着 IDE 无法比拟的优势。很多时候如果只是想写一些个人使用的小 Python 脚本或者写一个原型，再去开 IDE 就太浪费时间了。
 
@@ -24,7 +24,7 @@ categories:
 
 在现在，Vim 的开发已经分裂成了两大派别。其一是原始的 Vim 项目，现在处于 8.0 版本。另外还有 NeoVim，是一位开发者对 Vim 陈旧的开发思想感到不满而全新 Fork 出的分支。可以说，NeoVim 对 Vim 的进步起到了极大的推动作用，无论是 Async 操作还是 Timer 等特性，都是 NeoVim 首先实现，然后 Vim 主线再跟进的。此外，NeoVim 对除 VimL 外的外部开发语言的良好支持，对 Terminal 的内嵌，和对外部程序开放的嵌入接口，都给 NeoVim 的扩展带来了无限的可能。
 
-在 NeoVim 的基础上，套壳 GUI 开始蓬勃发展，很多 GUI 有着非常惊艳的效果，比如基于 Electron 的 Oni 和基于 Go 的 gonvim。它们都大幅改进了 NeoVim 的界面，给 Vim 增加了许多“现代化”的元素，打造“21世纪的模式编辑器”。
+在 NeoVim 的基础上，套壳 GUI 开始蓬勃发展，很多 GUI 有着非常惊艳的效果，比如基于 Electron 的 Oni 和基于 Go 的 gonvim。它们都大幅改进了 NeoVim 的界面，给 Vim 增加了许多“现代化”的元素，打造“21 世纪的模式编辑器”。
 ![Oni](/images/oni.png)
 ![gonvim](/images/gonvim.png)
 
@@ -61,27 +61,27 @@ dein.vim 可以配置成在启动 vim 的时候安装不存在的插件，而且
 ### 外观
 ![one](/images/vim-one-md.png)
 对于每天都使用的编辑器，使用一个适合的主题很重要。我个人比较喜欢 [one]("https://github.com/rakr/vim-one") 的白色主题。
-```
+```plain
 ColorScheme one
 set background=dark
 set background=light
 ```
 
 然后改造 Vim 的状态栏，为其添加一条色彩鲜艳的 Powerline。（Powerline 的 Vim 版已经失去支持，现在仍在活跃开发的有 [lightline](https://github.com/itchyny/lightline.vim) 和 [airline](https://github.com/vim-airline/vim-airline)。相对来说，lightline 更加轻量，而 airline 开箱即用，和其他很多插件都有自带整合。airline 还可以安装 [airline-themes](https://github.com/vim-airline/vim-airline-themes) 获取各类主题。
-```
+```plain
 let g:airline_theme='one'
 ```
 如果你的字体打过补丁，还可以开启 powerline font 特性进一步美化显示。
-```
+```plain
 let g:airline_powerline_fonts=1
 ```
 因为有了 airline，默认的状态显示就可以关掉了
-```
+```plain
 set noshowmode
 ```
 
 除此之外，还有一些其他的小设置，可以根据个人喜好配置。
-```
+```plain
 " 显示行号
 set number
 " 高亮当前行
