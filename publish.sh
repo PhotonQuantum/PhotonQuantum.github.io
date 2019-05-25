@@ -10,6 +10,6 @@ echo lightquantum.xyz > CNAME
 git config user.name "PhotonQuantum"
 git config user.email "cy.n01@outlook.com" 
 git add .
-git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
-git push --force --quiet "https://${travis_gh_token}@${GH_REF}" master:master
-git push --force --quiet "https://PhotonQuantum:${travis_co_token}@${CO_REF}" master:master
+git commit -m "Circle CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"
+git push --force --quiet "https://${circle_gh_token}@${GH_REF}" master:master
+git push --force --quiet "https://PhotonQuantum:${circle_co_token}@${CO_REF}" master:master
