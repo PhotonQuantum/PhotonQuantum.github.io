@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>流水账 on 光子の胡话</title>
+    <link>http://localhost:1313/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/</link>
+    <description>Recent content in 流水账 on 光子の胡话</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://localhost:1313/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>新年愿望</title>
+      <link>http://localhost:1313/posts/xin-nian-yuan-wang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/xin-nian-yuan-wang/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;填了《Orange》的坑（电子琴）&lt;/li&gt;
+&lt;li&gt;我要让英语抢回前三！&lt;/li&gt;
+&lt;li&gt;我要让自己能更轻易地刷化学！
+&lt;!-- more --&gt;&lt;/li&gt;
+&lt;li&gt;我物理要回前五！&lt;/li&gt;
+&lt;li&gt;我要在这一年里结识更多的人，无论是同班还是同校&lt;/li&gt;
+&lt;li&gt;我希望能认识一个和我有相近志向，相近三观的人，能和我交流各自的看法，走完高中的路程（可能已经有了？）&lt;/li&gt;
+&lt;li&gt;我想在这一年里找回自信心与目标，重拾自我&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>生气</title>
+      <link>http://localhost:1313/posts/i-am-angry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/i-am-angry/</guid>
+      <description>&lt;p&gt;气死我了！&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;气死我了！！垃圾 Sakura 把我的服务器实例在毫无预警的情况下删除了。。这下导致我丢掉了接近一半的博客文章，还有代理配置。现在我是有经验教训了，无论在什么情况下数据都得有一份备份。本来折腾了用阿里的 OSS 进行备份，然而我发现用这套方案写博客着实太烦了。。说实话，数据存储什么的事情本来就应该是由专做存储的服务来干的，所以我现在把博客文章源全部迁移到了 Dropbox 上了。真正优雅的科技产品就应该能做到各司其职，操作简便，然后能让你忽略它自己的存在。我现在造了服务器 bash 脚本轮子动态监控 Dropbox 内容，使用 Hexo 编译成静态文件通过 Nginx 服务。这下既省服务器资源，又能避免无良 ISP 跑路。有时间我再介绍这个轮子吧，或者再谈谈最近对科技产品的思考。至于现在，我得准备下周一的期末考试了，考完之后把之前的文章全都恢复一下。。气！&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;题外话：现在发现之前自己写的文章其实都很幼稚，我自己的想法现在已经有了改变了。如果有时间，我可能会在寒假里总结更新一下自己的看法。博客这种东西真是神奇，和处于别的时空的自己对话，这种感觉真的挺奇妙的。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>计划与反思</title>
+      <link>http://localhost:1313/posts/ji-hua-yu-fan-si/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ji-hua-yu-fan-si/</guid>
+      <description>&lt;p&gt;现在我发现了一个可怕的事实，就是我的大量的时间全都被耗费得无影无踪了。按理说我在学校里是非常努力的，别人在玩乐休息的时候我倒是一直在学习。问题是这时间利用效率实在是不算高。并且通过学校里认真学习节省出的时间全都在周末被看番休息耗费掉，最终还是被浪费了。打算反思一下开学到现在的时间安排，整理一下下阶段的学习计划。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最近我真是参合进太多不必要的事情里了。虽然说也算是体验体验高中生活过过青春，但用掉的时间和&lt;a href=&#34;https://lightquantum.xyz/jin-ri-de-fan-nao/&#34;&gt;带来的压力&lt;/a&gt;也真是太多了。还好这件事暂告一段落，可以专心把心思放在自己的事情上了。&lt;del&gt;反正我也不会有女朋友&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;周末荒废时间的毛病真的是要改改了，即使是弄弄课题也比躺床上看番好多了。近日我有计划做一个基于 Arduino 和树莓派的项目，期中考完硬件到手就要上手折腾了。&lt;/li&gt;
+&lt;li&gt;至于学习方面，我恶心的数学和地理要好好解决一下了，找个周末把圆和曲线的知识点好好看看然后做做 imath 练习。这几次考试连错好几道垃圾简单题，说到底就是不熟，还是需要多练。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>迁移到 Bitcron</title>
+      <link>http://localhost:1313/posts/qian-yi-dao-bitcron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/qian-yi-dao-bitcron/</guid>
+      <description>&lt;p&gt;在博客长久的长草和走出心情的低谷之后，本来想着要更新博客了，结果意外发现原来的服务器因为欠费停机了！woc 因为阿里云的短信提示被绑定到了同学手机上，等同学发现之后服务器已经没了。。气死了。。还好之前的&lt;a href=&#34;http://localhost:1313/post/articles/chong-shi-bo-ke-yu-qian-yi-zhi-hexo&#34;&gt;博客结构设计&lt;/a&gt;中博客的主体文本和图片是放在 Dropbox 上的，所有的博客数据得以恢复。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;很久以前就看到了 Farbox 这个博客平台产品，当初看到之后心里就长草了。可是不久之后，它。。它就调 dao 整 bi 了。。还好后来背后的工作室又出了它的接替产品——Bitcron。在当初，因为是小规模内测所以很难找到邀请码。前两天我又仔细翻了翻 Farbox 的后台文档，发现可以找 Bitcron 团队邮箱索取邀请码，便试着发了一封申请信。没想到团队很快就回复了一封邀请邮件，便成功注册了 Bitcron。&lt;/p&gt;
+
+&lt;p&gt;我很是喜欢 Bitcron 这种产品。“人类创造内容，我们负责渲染。”这才是科技本来应有的存在方式。真正美好的产品能在使用时让用户感知不到它的存在，背后多样可靠的技术不会让用户痛苦地折腾挣扎（说的就是你，今天的安卓——如果你想自己调教原生安卓和辣鸡国产应用的话）。同时和一部分国内平台不同，Bitcron 的服务器遍布全球，所以不必担心备案问题，而在国内的访问体验也因为香港节点的存在变得很好，网络节点体验极佳！&lt;/p&gt;
+
+&lt;p&gt;同时，Bitcron 也提供给用户很强的自定义和拓展能力，可以自己编写模版调用 API 来个性化自己的网站，而强大的 SmartPage 功能也可以做出很好看的特殊页面（比如 &lt;a href=&#34;http://localhost:1313/&#34;&gt;Landing Page&lt;/a&gt;），对我这种又比较爱折腾的人非常友好 233 不过从 Bitcron 的设计风格中也可以看出程序员需求思维的影子，这可能是 Bitcron 和 Farbox 发展一直不温不火的原因之一吧？&lt;/p&gt;
+
+&lt;p&gt;在迁移的过程中我忽然发现，好像我以前 Ghost 和 Wordpress 时代的博文没有迁移过来！这周末如果有时间的话我会立即迁移过来的。此外，考虑很久的个人介绍页面和时间线也会翻新。（不过因为地理考试临近，可能会咕咕 lol）&lt;/p&gt;
+
+&lt;p&gt;以上。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>重拾博客与迁移至 hexo</title>
+      <link>http://localhost:1313/posts/chong-shi-bo-ke-yu-qian-yi-zhi-hexo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/chong-shi-bo-ke-yu-qian-yi-zhi-hexo/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;作为新写博客的惯例，写点自我介绍和动机性质的东西&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以前曾经写过一个博客，没坚持下去。我发现写博客是一件很考验人意志力的东西，之前我通常把时间都浪费在选博客平台，选主题，搞 SEO 上，到最后却发现这些东西没有任何用处。感觉很多放在搭博客改博客上的时间其实都是白白浪费掉的。明明只是一个工具，却占用了我那么多时间，真的是本末倒置。现在仔细想想，想看博客的人自然会看，没人看的话，做一场记录自己的自娱自乐活动也挺好。&lt;del&gt;所以不折腾了，装了个 Ghost（这垃圾 Ghost 还真是难装，本来以为挺容易的，结果因为 nodejs 版本折腾了一个小时），默认主题，设置不改，直接写吧。&lt;/del&gt; 好了，事实证明我还是太年轻了，Ghost 一堆坑，现在改用 hexo，换了个 Next 主题，默认设置，文件放在 dropbox 自动同步，还免了备份文章。。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;... 现在又迁移到 Bitcron 了，还是 Bitcron 这种全托管服务更方便。而且 Bitcron 的可定制程度也很高，以后有时间大概会介绍一下&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;至于这篇博客的内容，之前博客里的内容自然会转过来，之后的内容会随着我自己的性子写。其实我感觉这个网站并不适合做成公开的形式，如果是一个私人的日记那倒是正好。估计再过个几年，这个网站就会成为我的黑历史。还好搭载博客并不是这台服务器的唯一目的，放出来也不会亏什么。
+因为最近一些特别的经历，我越来越意识到，人是需要一个地方来发发牢骚，说说自己内心的想法的。很多时候，自己身边认识的人反而并不是最好的倾诉对象，当面与人说的时候自己的措辞也会出现一些偏差，但如果改成书面的形式就不太会出现一些误解或者不爽的情况。并且，即使没有人看，有些话只要说出来就会感觉好很多，所以有没有访客，访客是谁其实并没有什么太大的关系。
+当然除了一个青少年的无谓牢骚之外，这个博客里还有一定概率会写一些我正在学习的编程类笔记或者一些小作品。希望读者不要对这些小玩具有任何无谓的希望，它们的质量大概会和&lt;a href=&#34;https://coolapk.com&#34;&gt;全球最大的计算器市场&lt;/a&gt;里 APP 的质量比较相近。如果在电子琴方面开了什么 op 新坑我可能也会稍微扯一扯吐槽一下网上扒谱的质量。&lt;/p&gt;
+
+&lt;p&gt;以上&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

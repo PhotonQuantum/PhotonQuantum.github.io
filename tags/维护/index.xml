@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>维护 on 光子の胡话</title>
+    <link>http://localhost:1313/tags/%E7%BB%B4%E6%8A%A4/</link>
+    <description>Recent content in 维护 on 光子の胡话</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://localhost:1313/tags/%E7%BB%B4%E6%8A%A4/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>迁移到 Bitcron</title>
+      <link>http://localhost:1313/posts/qian-yi-dao-bitcron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/qian-yi-dao-bitcron/</guid>
+      <description>&lt;p&gt;在博客长久的长草和走出心情的低谷之后，本来想着要更新博客了，结果意外发现原来的服务器因为欠费停机了！woc 因为阿里云的短信提示被绑定到了同学手机上，等同学发现之后服务器已经没了。。气死了。。还好之前的&lt;a href=&#34;http://localhost:1313/post/articles/chong-shi-bo-ke-yu-qian-yi-zhi-hexo&#34;&gt;博客结构设计&lt;/a&gt;中博客的主体文本和图片是放在 Dropbox 上的，所有的博客数据得以恢复。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;很久以前就看到了 Farbox 这个博客平台产品，当初看到之后心里就长草了。可是不久之后，它。。它就调 dao 整 bi 了。。还好后来背后的工作室又出了它的接替产品——Bitcron。在当初，因为是小规模内测所以很难找到邀请码。前两天我又仔细翻了翻 Farbox 的后台文档，发现可以找 Bitcron 团队邮箱索取邀请码，便试着发了一封申请信。没想到团队很快就回复了一封邀请邮件，便成功注册了 Bitcron。&lt;/p&gt;
+
+&lt;p&gt;我很是喜欢 Bitcron 这种产品。“人类创造内容，我们负责渲染。”这才是科技本来应有的存在方式。真正美好的产品能在使用时让用户感知不到它的存在，背后多样可靠的技术不会让用户痛苦地折腾挣扎（说的就是你，今天的安卓——如果你想自己调教原生安卓和辣鸡国产应用的话）。同时和一部分国内平台不同，Bitcron 的服务器遍布全球，所以不必担心备案问题，而在国内的访问体验也因为香港节点的存在变得很好，网络节点体验极佳！&lt;/p&gt;
+
+&lt;p&gt;同时，Bitcron 也提供给用户很强的自定义和拓展能力，可以自己编写模版调用 API 来个性化自己的网站，而强大的 SmartPage 功能也可以做出很好看的特殊页面（比如 &lt;a href=&#34;http://localhost:1313/&#34;&gt;Landing Page&lt;/a&gt;），对我这种又比较爱折腾的人非常友好 233 不过从 Bitcron 的设计风格中也可以看出程序员需求思维的影子，这可能是 Bitcron 和 Farbox 发展一直不温不火的原因之一吧？&lt;/p&gt;
+
+&lt;p&gt;在迁移的过程中我忽然发现，好像我以前 Ghost 和 Wordpress 时代的博文没有迁移过来！这周末如果有时间的话我会立即迁移过来的。此外，考虑很久的个人介绍页面和时间线也会翻新。（不过因为地理考试临近，可能会咕咕 lol）&lt;/p&gt;
+
+&lt;p&gt;以上。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
