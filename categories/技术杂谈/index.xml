@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技术杂谈 on 光子の胡话</title>
-    <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/</link>
+    <link>https://lightquantum.xyz/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/</link>
     <description>Recent content in 技术杂谈 on 光子の胡话</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 01 Dec 2018 12:54:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lightquantum.xyz/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vim 下使用 Microsoft Python Language Server 补全</title>
-      <link>http://localhost:1313/posts/microsoft-pyls-in-vim/</link>
+      <link>https://lightquantum.xyz/posts/microsoft-pyls-in-vim/</link>
       <pubDate>Sat, 01 Dec 2018 12:54:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/microsoft-pyls-in-vim/</guid>
+      <guid>https://lightquantum.xyz/posts/microsoft-pyls-in-vim/</guid>
       <description>自从上次咕咕咕之后，博客又长草了三个月（逃。当然，我也没想到咕咕咕之后写的第一篇文章竟然是一篇技术文。等等，我最初开这个博客的目的就是写点杂七杂八的技术吧？那我写一些技术类的东西也不会显得奇怪吧？呐？</description>
     </item>
     
     <item>
       <title>Vim 配置</title>
-      <link>http://localhost:1313/posts/vim-pei-zhi/</link>
+      <link>https://lightquantum.xyz/posts/vim-pei-zhi/</link>
       <pubDate>Tue, 06 Feb 2018 13:23:16 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/vim-pei-zhi/</guid>
+      <guid>https://lightquantum.xyz/posts/vim-pei-zhi/</guid>
       <description>到现在我才发现，这个博客至今从来没有写过任何关于技术的文章欸（大概是因为我太懒+技术太烂）！我用 Vim 其实已经用了很久了，从接触 Linux 开始我就没用过 Nano 或者是其他的编辑器，因为 Vim 无以比拟的键盘与终端操作的便利性</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>时论 on 光子の胡话</title>
-    <link>http://localhost:1313/tags/%E6%97%B6%E8%AE%BA/</link>
+    <link>https://lightquantum.xyz/tags/%E6%97%B6%E8%AE%BA/</link>
     <description>Recent content in 时论 on 光子の胡话</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 26 Nov 2017 19:15:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/%E6%97%B6%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lightquantum.xyz/tags/%E6%97%B6%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>世界折叠</title>
-      <link>http://localhost:1313/posts/shi-jie-zhe-die/</link>
+      <link>https://lightquantum.xyz/posts/shi-jie-zhe-die/</link>
       <pubDate>Sun, 26 Nov 2017 19:15:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/shi-jie-zhe-die/</guid>
+      <guid>https://lightquantum.xyz/posts/shi-jie-zhe-die/</guid>
       <description>刚刚看到一篇微信号文章《北京终于折叠》，提到目前北京的整治活动将底层劳动者的生活空间压缩到最小，阶级分层固化的严重程度又上了一个台阶。在我看来，阶级分层固化不仅仅是北京乃至中国的问题，这是全球当今社会</description>
     </item>
     

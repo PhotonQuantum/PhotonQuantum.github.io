@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>时评 on 光子の胡话</title>
-    <link>http://localhost:1313/tags/%E6%97%B6%E8%AF%84/</link>
+    <link>https://lightquantum.xyz/tags/%E6%97%B6%E8%AF%84/</link>
     <description>Recent content in 时评 on 光子の胡话</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 23 Feb 2018 17:24:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/%E6%97%B6%E8%AF%84/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lightquantum.xyz/tags/%E6%97%B6%E8%AF%84/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>从中文编程说起</title>
-      <link>http://localhost:1313/posts/cong-zhong-wen-bian-cheng-kai-shi/</link>
+      <link>https://lightquantum.xyz/posts/cong-zhong-wen-bian-cheng-kai-shi/</link>
       <pubDate>Fri, 23 Feb 2018 17:24:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/cong-zhong-wen-bian-cheng-kai-shi/</guid>
+      <guid>https://lightquantum.xyz/posts/cong-zhong-wen-bian-cheng-kai-shi/</guid>
       <description>&lt;h2 id=&#34;原委&#34;&gt;原委&lt;/h2&gt;
 
 &lt;p&gt;最近在 Github 的 C# Repo 上看到了一个很搞笑的 &lt;a href=&#34;https://github.com/dotnet/csharplang/issues/993&#34;&gt;issue&lt;/a&gt;，因为内容太长了，恕无法贴出全文 233 大体上是在建议微软为 C#、F#、VB.net 提供一个中文变体，然后关于中文编程的必要性和实现进行辩论。在中国编程圈子里这也算是个老生常谈的话题了，也时常有人在研究实现实验性的编程语言。虽然我对于中文程序语言的必要性不置可否，但是这个 issue 暴露出了一些长久存在于国人身上的问题，我想对此谈谈自己的看法。&lt;/p&gt;</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>学习态度随记</title>
-      <link>http://localhost:1313/posts/xue-xi-tai-du-sui-ji/</link>
+      <link>https://lightquantum.xyz/posts/xue-xi-tai-du-sui-ji/</link>
       <pubDate>Wed, 06 Dec 2017 19:15:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/xue-xi-tai-du-sui-ji/</guid>
+      <guid>https://lightquantum.xyz/posts/xue-xi-tai-du-sui-ji/</guid>
       <description>今天语文课时老师说了一句让我很有感触的话，说是“有些人不甘平庸努力奋斗，有些人甘于平庸沉于平庸。而最可悲的是那些不甘平庸却又不愿意努力的人，他们的结果比甘于平庸的人还惨，这是最悲哀的。” 现在看下来，我</description>
     </item>
     

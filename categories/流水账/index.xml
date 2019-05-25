@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>流水账 on 光子の胡话</title>
-    <link>http://localhost:1313/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/</link>
+    <link>https://lightquantum.xyz/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/</link>
     <description>Recent content in 流水账 on 光子の胡话</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 22 Jan 2018 17:49:17 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lightquantum.xyz/categories/%E6%B5%81%E6%B0%B4%E8%B4%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>新年愿望</title>
-      <link>http://localhost:1313/posts/xin-nian-yuan-wang/</link>
+      <link>https://lightquantum.xyz/posts/xin-nian-yuan-wang/</link>
       <pubDate>Mon, 22 Jan 2018 17:49:17 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/xin-nian-yuan-wang/</guid>
+      <guid>https://lightquantum.xyz/posts/xin-nian-yuan-wang/</guid>
       <description>填了《Orange》的坑（电子琴） 我要让英语抢回前三！ 我要让自己能更轻易地刷化学！ 我物理要回前五！ 我要在这一年里结识更多的人，无论是同班还是同校 我希望能认识一个和我有相近志向，相近三观的人，能和我交流</description>
     </item>
     
     <item>
       <title>生气</title>
-      <link>http://localhost:1313/posts/i-am-angry/</link>
+      <link>https://lightquantum.xyz/posts/i-am-angry/</link>
       <pubDate>Sat, 13 Jan 2018 20:20:23 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/i-am-angry/</guid>
+      <guid>https://lightquantum.xyz/posts/i-am-angry/</guid>
       <description>气死我了！ 气死我了！！垃圾 Sakura 把我的服务器实例在毫无预警的情况下删除了。。这下导致我丢掉了接近一半的博客文章，还有代理配置。现在我是有经验教训了，无论在什么情况下数据都得有一份备份。本来折腾了用阿里的 OSS</description>
     </item>
     
     <item>
       <title>计划与反思</title>
-      <link>http://localhost:1313/posts/ji-hua-yu-fan-si/</link>
+      <link>https://lightquantum.xyz/posts/ji-hua-yu-fan-si/</link>
       <pubDate>Wed, 01 Nov 2017 19:33:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/ji-hua-yu-fan-si/</guid>
+      <guid>https://lightquantum.xyz/posts/ji-hua-yu-fan-si/</guid>
       <description>现在我发现了一个可怕的事实，就是我的大量的时间全都被耗费得无影无踪了。按理说我在学校里是非常努力的，别人在玩乐休息的时候我倒是一直在学习。问题是这时间利用效率实在是不算高。并且通过学校里认真学习节省出</description>
     </item>
     
     <item>
       <title>重拾博客与迁移至 hexo</title>
-      <link>http://localhost:1313/posts/chong-shi-bo-ke-yu-qian-yi-zhi-hexo/</link>
+      <link>https://lightquantum.xyz/posts/chong-shi-bo-ke-yu-qian-yi-zhi-hexo/</link>
       <pubDate>Wed, 25 Oct 2017 19:08:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/chong-shi-bo-ke-yu-qian-yi-zhi-hexo/</guid>
+      <guid>https://lightquantum.xyz/posts/chong-shi-bo-ke-yu-qian-yi-zhi-hexo/</guid>
       <description>作为新写博客的惯例，写点自我介绍和动机性质的东西 以前曾经写过一个博客，没坚持下去。我发现写博客是一件很考验人意志力的东西，之前我通常把时间都浪费在选博客平台，选主题，搞 SEO 上，到最后却发现这些东西没有任</description>
     </item>
     
     <item>
       <title>迁移到 Bitcron</title>
-      <link>http://localhost:1313/posts/qian-yi-dao-bitcron/</link>
+      <link>https://lightquantum.xyz/posts/qian-yi-dao-bitcron/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/qian-yi-dao-bitcron/</guid>
+      <guid>https://lightquantum.xyz/posts/qian-yi-dao-bitcron/</guid>
       <description>在博客长久的长草和走出心情的低谷之后，本来想着要更新博客了，结果意外发现原来的服务器因为欠费停机了！woc 因为阿里云的短信提示被绑定到了同学手机上，等同学发现之后服务器已经没了。。气死了。。还好之前的</description>
     </item>
     
