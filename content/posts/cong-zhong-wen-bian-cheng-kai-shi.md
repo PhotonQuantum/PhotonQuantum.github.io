@@ -12,27 +12,29 @@ categories:
 
 最近在 Github 的 C# Repo 上看到了一个很搞笑的 [issue](https://github.com/dotnet/csharplang/issues/993)，因为内容太长了，恕无法贴出全文 233 大体上是在建议微软为 C#、F#、VB.net 提供一个中文变体，然后关于中文编程的必要性和实现进行辩论。在中国编程圈子里这也算是个老生常谈的话题了，也时常有人在研究实现实验性的编程语言。虽然我对于中文程序语言的必要性不置可否，但是这个 issue 暴露出了一些长久存在于国人身上的问题，我想对此谈谈自己的看法。
 
-<!--more-->
-
 ## 只空想不动手
 
 在这个 issue 下面有一些好心人在给这名用户一些解释说明：
+
 > qrli: Company has to earn money to keep going. If you pay a big bill, someone will do it for you. You cannot ask someone to do you a favor for free.
 And, computer language is not natural language. E.g. Your math symbols are not Chinese, your numbers are not Chinese, but you have no problem with them, right?
 We generally view it as non-sense. If you really want it, you can create an editor plugin to translate keywords to Chinese and display them.
 
 同时还有日本友人的留言:
+
 > ufcpp: 中国だけでなく、日本でも同様の問題があります。多くのプログラミング言語が英語をベースにしていて、日本語話者にとってプログラミングの難しさの一因になっています。
 当然、日本でも「日本語プログラミング言語」が欲しいという声はあります。実際になでしこというプログラミング言語があります。しかし、日本語プログラミング言語を作れるのはやっぱり日本語話者だけでしょう。中国語ネイティブなC#が欲しければ、それは中国語話者が作るべきで、他力本願でマイクロソフトに頼むものではないと思います。
 ちなみに、日本語プログラミング言語は、存在こそあるものの、実際のところあまり流行はしていません。
 
 
 也有一些建设性的回复：
+
 > nobodxbodon: I agree that it's up to Chinese speakers to develop programming languages in Chinese. I heard about なでしこ before, and seems it's very useful for certain user group and certain tasks. I'm also trying to develop a simple script language, hopefully using Chinese grammar/tokens, to solve simple tasks, as a baby step towards Chinese PL.
 
 
 这是 issue 提交者的回复：
->@qrli
+
+> @qrli
 你是中国人吗? 怎么对中文编程的话题这么熟悉?看起来你没明白我表达的重点.你是在抵制中文编程吧.
 实现母语编程怎么可能没有意义? C#用的字符已经非常接近英语自然语言,也就是越来越母语化,如果这个星球上的人都能用他们自己的母语编程,软件生态将空前的强大和发展.
 你完全不知道量变带来的质变是怎样的,就急着否定它?
@@ -40,7 +42,7 @@ We generally view it as non-sense. If you really want it, you can create an edit
 你不过是站在你自己的角度考虑罢了,你没站在微软这种大企业的角度和市场的角度考虑.你不知道生态发达会是怎样一番景象,并且,你想要阻止对编程感兴趣和热心的人.
 并且,阿拉伯数字和数学符号没必要中文化.
 
->@ufcpp 朋友你好,
+> @ufcpp 朋友你好,
 我表达的意思是,本地化和母语化,就像一款国际化的软件会提供多种版本一样,
 
 
@@ -59,6 +61,7 @@ We generally view it as non-sense. If you really want it, you can create an edit
 ## 规范与妥协
 
 根据 Github 的 Guideline：
+
 > Issues are a great way to **keep track of tasks, enhancements, and bugs** for your projects. They’re kind of like email—except they can be shared and discussed with the rest of your team. Most software projects have a **bug tracker** of some kind. GitHub’s tracker is called Issues, and has its own section in every repository.
 
 同时，issue 相关联的 repo(csharplang) 自己的规范：
@@ -86,7 +89,7 @@ Include minimal IDE support (keyword coloring, formatting, completion)
 
 要让别人看得起你，你自己首先得看得起你自己。这样看来，中国人的心理基础离大国还差得远。
 
->@rgwan
+> @rgwan
 我在这里发这个倡议讨论的是 中文版 C# 之实现的可行性,顺便讨论下中文编程的的意义,你却要我去证明你讲的那一套,**你是在命令我吗?你不知道什么叫讨论,探讨,探索是吗?**
 你认为不好,不高效,也不省事,那就随你呀,这是你的自由,只不过**不要来强加给我就行**,
 我也没有强加给别人什么,如果是要一个劲地非要硬是把我的原意解读为,我是在要求别的开发团队来实现我的意志,那请便.
@@ -95,7 +98,7 @@ Include minimal IDE support (keyword coloring, formatting, completion)
 
 ## 敌我意识
 
->既然贴出了我回复你们对我的"谩骂,嘲讽和羞辱",那咋不把你们自己 **羞辱谩骂嘲讽他人**的评论也贴出来呢 ?果然是 **小人行径** .
+> 既然贴出了我回复你们对我的"谩骂,嘲讽和羞辱",那咋不把你们自己 **羞辱谩骂嘲讽他人**的评论也贴出来呢 ?果然是 **小人行径** .
 我需要澄清一下,这几个账号 pigfromChina bctnry(当然,还有一些) **是在这里反对我的观点并进行人身攻击最多的** .我初始的时候,并没有在意他们的攻击,但是这反而 **让他们得寸进尺**. 我觉得有必要说明下他们的 **丑恶** 行径.
 pigfromChina 他只是贴出了我回复他们对我的"谩骂,嘲讽和羞辱",但并没有把他们自己,羞辱谩骂嘲讽他人的评论也贴出来呢?他们的行为如何,我无须多言.
 目前,这里有;
@@ -108,4 +111,4 @@ pigfromChina 他只是贴出了我回复他们对我的"谩骂,嘲讽和羞辱",
 好的，我们仿佛又回到了那个时代，人与人之间又要开始划左划右，争个你死我活，贴大字报批斗示众。
 无论是在微博还是在任何中文社交平台上，我们对各种“党争”已经见怪不怪了。这样的习惯看来从 萌~~wen~~化 Revolution 给国人的心中种下二分敌我观的种子之后一直继承到了今天。简单地把所有人划为几类，大大方便了逻辑判断，也利于合法化自己对他人的攻击，如果别人反驳就可以用自己的道德大旗来抵挡，真的是非常方便的自欺欺人的手段。二分化的简单思路，扣帽子的习惯，阻止别人来和你站到一条线上（因为别人害怕被你的“大义”捆绑），也阻止有道德有思想的人和你交流（生怕被你攻击，也懒得理你）。当互联网环境充斥着这类人时，其结果就是充斥着不择手段的攻击与诋毁，不停挑战人性的下限（就和几十年前一个结果）。
 
->duangsuse: 不要给自己臆造幻想中的敌人, 认为别人粗鲁的人首先应该审视自己.
+> duangsuse: 不要给自己臆造幻想中的敌人, 认为别人粗鲁的人首先应该审视自己.

@@ -26,7 +26,7 @@ categories:
 然后 git clone https://github.com/Microsoft/python-language-server
 进入刚刚 clone 下来的 repo，到 src/LanguageServer/Impl 下，然后
 
-```plain
+``` bash
 $ dotnet build -c Release
 Microsoft (R) Build Engine version 15.9.20.62826 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
@@ -52,7 +52,7 @@ Time Elapsed 00:00:07.36
 
 **记得修改<...>到你刚刚编译的目录！**
 
-```plain
+```
 let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/bin/dotnet', 'exec', '/<...>/output/bin/Release/Microsoft.Python.LanguageServer.dll']
 \ }
@@ -63,7 +63,7 @@ let g:LanguageClient_loggingLevel = "DEBUG"
 由于微软的 LSP 实现稍微有一点方言（微软：对，我说什么就是什么，sorry，我提的协议我就可以为所欲为～），所以需要在初始化时传入一点参数。
 在项目目录下（或者是要编辑的 py 文件的同目录下创建 .vim/settings.json，然后写入
 
-```plain
+```json
 {
   "enabled": true,
   "initializationOptions": {
@@ -94,7 +94,7 @@ let g:LanguageClient_loggingLevel = "DEBUG"
 这之后不要忘了装一个补全框架，Vim 默认的实现其实挺不顺手的。个人建议用一些异步的实现，比如之前提到的 ncm2。记得查看插件的 Github Repo，有一些依赖和配置建议。不看的话很有可能会报出一大堆错啊 233
 如果你用了 ncm2，还可以对补全设定加上一些小 tweaks。我个人用的配置是
 
-```plain
+```
 " 这里是对于 Multiple Cursors 插件的 workaround，没有这个插件的话就不用了
 function g:Multiple_cursors_before()
   call ncm2#lock('multiple_cursors')
