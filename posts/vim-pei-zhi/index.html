@@ -1,3 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="LightQuantum"/>
+
+  
+  <meta name="description" content="到现在我才发现，这个博客至今从来没有写过任何关于技术的文章欸（大概是因为我太懒&#43;技术太烂）！我用 Vim 其实已经用了很久了，从接触 Linux 开始我就没用过 Nano 或者是其他的编辑器，因为 Vim 无以比拟的键盘与终端操作的便利性"/>
+  
+
+  
+
+  
+  <link rel="canonical" href="http://localhost:1313/posts/vim-pei-zhi/"/>
+
+  
+
+  <title>Vim 配置 &middot; 光子の胡话</title>
+
+  <link rel="shortcut icon" href="http://localhost:1313/images/favicon.ico"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/animate.min.css"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/remixicon.css"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/zozo.css"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight.css"/>
+
+  
+  
+</head>
 
 <body>
 <div class="main animated">
@@ -69,7 +102,7 @@
       <div class="post animated fadeInDown">
         <div class="post_title post_detail_title">
           <h2><a href='/posts/vim-pei-zhi/'>Vim 配置</a></h2>
-          <span class="date">0001.01.01</span>
+          <span class="date">2018.02.06</span>
         </div>
         <div class="post_content markdown">
 
@@ -77,7 +110,7 @@
 
 <!-- more -->
 
-<h2 id="正确使用-vim:25d6be75dee94486d03e164460065b8b">正确使用 Vim</h2>
+<h2 id="正确使用-vim">正确使用 Vim</h2>
 
 <p>很多人质疑说，在 21 世纪，我们根本没有必要使用这种带模式的文本编辑器。这种说法我就不太认同。毕竟，一般人在使用类似 VSCode 的编辑器的时候，都或多或少地接触了模式编辑的概念：使用键盘的时候为 Insert 模式，使用鼠标的时候为 Normal 模式。而鼠标很多时候并不是一个很好的定位工具，因为文本的特殊性，使用键盘来定位内容比使用鼠标更为快捷和精准，并且用终端的时候，鼠标控制更是不可能的。</p>
 
@@ -85,7 +118,7 @@
 
 <p>然后说到很多人纠结的 Emacs 和 Vim 之争，其实 Emacs 的定位也和 Vim 有着根本的不同。Emacs 是一个非常庞大完整的系统，有 Org-mode、多媒体支持、网络插件等等的功能，还有人在使用 Emacs 来放映电影，查看 PDF 文档，甚至泡咖啡。而 Vim 则更专职文本编辑，并没有太多除了文本编辑以外的功能，其使用用途也更单一。当然也不是说 Vim 不能用来泡咖啡（你可以写个 Python 脚本来和咖啡机通信），但是它本来就不是用来干这种事情的。所以 Emacs 和 Vim 并没有绝对的优劣，只是看各人的需求如何了。</p>
 
-<h2 id="vim-的衍生分支-neovim:25d6be75dee94486d03e164460065b8b">Vim 的衍生分支—— NeoVim</h2>
+<h2 id="vim-的衍生分支-neovim">Vim 的衍生分支—— NeoVim</h2>
 
 <p>在现在，Vim 的开发已经分裂成了两大派别。其一是原始的 Vim 项目，现在处于 8.0 版本。另外还有 NeoVim，是一位开发者对 Vim 陈旧的开发思想感到不满而全新 Fork 出的分支。可以说，NeoVim 对 Vim 的进步起到了极大的推动作用，无论是 Async 操作还是 Timer 等特性，都是 NeoVim 首先实现，然后 Vim 主线再跟进的。此外，NeoVim 对除 VimL 外的外部开发语言的良好支持，对 Terminal 的内嵌，和对外部程序开放的嵌入接口，都给 NeoVim 的扩展带来了无限的可能。</p>
 
@@ -95,9 +128,9 @@
 
 <p>因为时间关系，我还没来得及试用这两款 Frontend， 所以下文的配置是针对传统的 GUI 方案——NeoVim-Qt 撰写的，并没有用到什么全新的黑科技。如果有时间，我一定会试用一下这些全新的工具的。</p>
 
-<h2 id="我的-vim-配置:25d6be75dee94486d03e164460065b8b">我的 Vim 配置</h2>
+<h2 id="我的-vim-配置">我的 Vim 配置</h2>
 
-<h3 id="在配置之前:25d6be75dee94486d03e164460065b8b">在配置之前</h3>
+<h3 id="在配置之前">在配置之前</h3>
 
 <p>很多人在刚刚上手使用 Vim 的时候就很喜欢上网去找各种 Vim 发行版（比如 <a href="https://github.com/SpaceVim/SpaceVim">SpaceVim</a> 或者 <a href="https://github.com/LER0ever/EverVim">EverVim</a>）直接使用，或者看到一篇教程之后安装一大堆 Plugin。这种使用方法是错误的，因为在完全熟悉 Vim 本来的操作之前就用各种附加工具，就相当于还不会走路的时候学跑步，学出来的样子肯定是非常奇怪的。如果过早就陷入了玩配置的过程中，就无法习得 Vim 的正确高效使用方法，因此很多人有着几千行的 .vimrc，还只会不停按着 jkhl 来导航。为了避免这种情况，请先练习 Vim 自带的教程，打开方式是 :Tutor 。</p>
 
@@ -107,7 +140,7 @@
 <p>Tip: 下文所写的配置只保证能在 NeoVim 中正常使用，其中一些插件确认使用了 NeoVim 独有的特性，并且请确保你已经安装了 Python3 插件以支持 Neovim 的 Python 特性。NeoVim 的配置文件 <strong>不是 .vimrc，是 .config/neovim/init.vim，或者是针对 GUI 的 .config/neovim/ginit.vim！</strong></p>
 </blockquote>
 
-<h3 id="插件管理:25d6be75dee94486d03e164460065b8b">插件管理</h3>
+<h3 id="插件管理">插件管理</h3>
 
 <p>配置 Vim 的时候，或多或少会使用到一些插件，而一个好的插件管理器能避免大量的麻烦，并把插件关系整理得井井有条。很多人应该都听说过 Vundle、vim-plug 这类的管理器，而在现在我更推荐 dein.vim。其作者 <a href="https://github.com/Shougo">Shougo</a> 曾经在 <a href="https://github.com/Shougo/dein.vim/issues/135">issue 135</a> 比较过 dein.vim 与 vim-plug 的区别。</p>
 
@@ -129,7 +162,7 @@
 vim-plug: <a href="https://github.com/junegunn/vim-plug">Github 地址</a></p>
 </blockquote>
 
-<h3 id="外观:25d6be75dee94486d03e164460065b8b">外观</h3>
+<h3 id="外观">外观</h3>
 
 <p><img src="/images/vim-one-md.png" alt="one" />
 对于每天都使用的编辑器，使用一个适合的主题很重要。我个人比较喜欢 [one](&quot;<a href="https://github.com/rakr/vim-one&quot;">https://github.com/rakr/vim-one&quot;</a>) 的白色主题。</p>

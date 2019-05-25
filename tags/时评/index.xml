@@ -6,152 +6,29 @@
     <description>Recent content in 时评 on 光子の胡话</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/tags/%E6%97%B6%E8%AF%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Feb 2018 17:24:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/%E6%97%B6%E8%AF%84/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>从中文编程说起</title>
       <link>http://localhost:1313/posts/cong-zhong-wen-bian-cheng-kai-shi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 23 Feb 2018 17:24:00 +0000</pubDate>
       
       <guid>http://localhost:1313/posts/cong-zhong-wen-bian-cheng-kai-shi/</guid>
-      <description>
+      <description>&lt;h2 id=&#34;原委&#34;&gt;原委&lt;/h2&gt;
 
-&lt;h2 id=&#34;原委:e052a7a6beb19ffcd39c65f16072d725&#34;&gt;原委&lt;/h2&gt;
-
-&lt;p&gt;最近在 Github 的 C# Repo 上看到了一个很搞笑的 &lt;a href=&#34;https://github.com/dotnet/csharplang/issues/993&#34;&gt;issue&lt;/a&gt;，因为内容太长了，恕无法贴出全文 233 大体上是在建议微软为 C#、F#、VB.net 提供一个中文变体，然后关于中文编程的必要性和实现进行辩论。在中国编程圈子里这也算是个老生常谈的话题了，也时常有人在研究实现实验性的编程语言。虽然我对于中文程序语言的必要性不置可否，但是这个 issue 暴露出了一些长久存在于国人身上的问题，我想对此谈谈自己的看法。&lt;/p&gt;
-
-&lt;h2 id=&#34;只空想不动手:e052a7a6beb19ffcd39c65f16072d725&#34;&gt;只空想不动手&lt;/h2&gt;
-
-&lt;p&gt;在这个 issue 下面有一些好心人在给这名用户一些解释说明：
-&amp;gt; qrli: Company has to earn money to keep going. If you pay a big bill, someone will do it for you. You cannot ask someone to do you a favor for free.
-And, computer language is not natural language. E.g. Your math symbols are not Chinese, your numbers are not Chinese, but you have no problem with them, right?
-We generally view it as non-sense. If you really want it, you can create an editor plugin to translate keywords to Chinese and display them.&lt;/p&gt;
-
-&lt;p&gt;同时还有日本友人的留言:
-&amp;gt; ufcpp: 中国だけでなく、日本でも同様の問題があります。多くのプログラミング言語が英語をベースにしていて、日本語話者にとってプログラミングの難しさの一因になっています。
-当然、日本でも「日本語プログラミング言語」が欲しいという声はあります。実際になでしこというプログラミング言語があります。しかし、日本語プログラミング言語を作れるのはやっぱり日本語話者だけでしょう。中国語ネイティブなC#が欲しければ、それは中国語話者が作るべきで、他力本願でマイクロソフトに頼むものではないと思います。
-ちなみに、日本語プログラミング言語は、存在こそあるものの、実際のところあまり流行はしていません。&lt;/p&gt;
-
-&lt;p&gt;也有一些建设性的回复：
-&amp;gt; nobodxbodon: I agree that it&#39;s up to Chinese speakers to develop programming languages in Chinese. I heard about なでしこ before, and seems it&#39;s very useful for certain user group and certain tasks. I&#39;m also trying to develop a simple script language, hopefully using Chinese grammar/tokens, to solve simple tasks, as a baby step towards Chinese PL.&lt;/p&gt;
-
-&lt;p&gt;这是 issue 提交者的回复：
-&amp;gt;@qrli
-你是中国人吗? 怎么对中文编程的话题这么熟悉?看起来你没明白我表达的重点.你是在抵制中文编程吧.
-实现母语编程怎么可能没有意义? C#用的字符已经非常接近英语自然语言,也就是越来越母语化,如果这个星球上的人都能用他们自己的母语编程,软件生态将空前的强大和发展.
-你完全不知道量变带来的质变是怎样的,就急着否定它?
-我设想的是在编程语言的基础上实现本地化和母语化, 不是用插件实现.
-你不过是站在你自己的角度考虑罢了,你没站在微软这种大企业的角度和市场的角度考虑.你不知道生态发达会是怎样一番景象,并且,你想要阻止对编程感兴趣和热心的人.
-并且,阿拉伯数字和数学符号没必要中文化.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;@ufcpp 朋友你好,
-我表达的意思是,本地化和母语化,就像一款国际化的软件会提供多种版本一样,&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这里就不摘取更多的评论了。看到这些讨论，我突然在想：这个人在此之后有没有任何的下一步动作呢？我去翻了一下他的 Repo 列表。&lt;/p&gt;
-
-&lt;p&gt;有。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/qwas982_repo.png&#34; alt=&#34;qwas982 repo&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;如果这也算有的话。&lt;/p&gt;
-
-&lt;p&gt;所以从头到尾，这个人一直都在谈他的构想，然后想说服所有人来帮他做，没有给出任何有建设性的意见。在 Github，大家本来都用代码说话，别人没有义务来为你无偿实现代码。即使不是在 Github，要实现一项产品也不是在论坛上发一段话就可以实现的，得自己付出力量去找合作，找资本，然后自己把整个公司/社区运行起来，给出有说服力的产品，大家才有可能来尝试你的东西。别人没有义务来为你实现代码，也没有义务来使用你的产品。&lt;/p&gt;
-
-&lt;p&gt;其实，类似这样的思想是中国科研圈，特别是计算机领域的一个通病。从理论高度来谈一个项目的必要性谁都会做，但是要实现一个高质量的成品需要有真学识的人长期的付出投入。问题在于，现在空想家太多而实干者太少，这样的结果就是量产出一个个外强中干的空有名号的空壳产品。从 China OS 到 &lt;del&gt;国产&lt;/del&gt;印字 CPU，到现在火热的 AI，提着大名号的项目不计其数，国家为它们投入无数的资源，而这些投入换来的却是一个个套壳成品与开源项目抄袭丑闻。现在人人都在做中国梦，但沉溺在梦中不想苏醒，只会吹起一个个精美绝伦的泡沫，而在其破碎的瞬间在痛苦中醒来。当梦的泡沫遮蔽了真正实干者的光芒，当劣币驱逐良币，中国的科研就不可能真正全面走入世界一流之列，这也是最可悲的未来。&lt;/p&gt;
-
-&lt;h2 id=&#34;规范与妥协:e052a7a6beb19ffcd39c65f16072d725&#34;&gt;规范与妥协&lt;/h2&gt;
-
-&lt;p&gt;根据 Github 的 Guideline：
-&amp;gt; Issues are a great way to &lt;strong&gt;keep track of tasks, enhancements, and bugs&lt;/strong&gt; for your projects. They’re kind of like email—except they can be shared and discussed with the rest of your team. Most software projects have a &lt;strong&gt;bug tracker&lt;/strong&gt; of some kind. GitHub’s tracker is called Issues, and has its own section in every repository.&lt;/p&gt;
-
-&lt;p&gt;同时，issue 相关联的 repo(csharplang) 自己的规范：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Discussion should be relevant to C# language design. Issues that are not will be summarily closed.
-
-&lt;ul&gt;
-&lt;li&gt;Choose a descriptive title for the issue, that clearly communicates the scope of discussion.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Design Process
-In many cases it will be necessary to &lt;strong&gt;implement and share a prototype of a feature in order to land on the right design, and ultimately decide whether to adopt the feature&lt;/strong&gt;. Prototypes help discover both implementation and usability issues of a feature. A prototype should be implemented in a fork of the Roslyn repo and meet the following bar:
-Parsing (if applicable) should be resilient to experimentation: typing should not cause crashes.
-&lt;strong&gt;Include minimal tests demonstrating the feature at work end-to-end&lt;/strong&gt;.
-Include minimal IDE support (keyword coloring, formatting, completion)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;很明显，这个 issue 根本就和现有项目的进度、bug，或者是&amp;quot;enhancements&amp;quot;没有任何关联。即使看作是语言设计的讨论，也没有给出任何的 Prototype，还有长达 3 个屏幕才能读完的汉字内容，完全就不符合约定俗成的交流规范。&lt;/p&gt;
-
-&lt;p&gt;还有很多国人在一些明显写着要求使用英文讨论相关问题的国外论坛使用中文，然后以“中国人就要说中文”为理由拒绝执行规范。这就像小孩撒泼一样无赖，同时其结果也会像大多数人面对小孩撒泼的结果——不理睬——一样。&lt;/p&gt;
-
-&lt;p&gt;当你要求别人为你妥协的时候，你也要学会向他人妥协。言论自由不是为你违反规范后的辩解特制的挡箭牌，也不会禁止别人在你拒绝妥协后将你的 issue close 或者把你 ban 掉。&lt;/p&gt;
-
-&lt;h2 id=&#34;自尊背后的自卑:e052a7a6beb19ffcd39c65f16072d725&#34;&gt;自尊背后的自卑&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;现在,人们看不到编程的前景,并且,因为进入这个领域的大多是&lt;strong&gt;精英学者&lt;/strong&gt;,他们已经思维固化,认为实现中文编程汉语编程没有意义,他们已经&lt;strong&gt;唯英语编程马首是瞻&lt;/strong&gt;,对英文编程依耐性很高,认为编程已经没有别的路可走,没有别的可能性了,因此他们不想研究中文编程汉语编程,更不会来实现,因为他们已经&lt;strong&gt;被严重西化&lt;/strong&gt;,他们下一步要做的就是抛弃他们的母语,和承载于母语上的文化.你问他们国学是什么,他们不会知道,就算知道这个名字,他们也说不出什么是国学.对国学涵盖的广泛文化内涵一概不知.为什么,因为国学也是一种思想,而他们学的思想是西方人的文化.是西方人的&lt;strong&gt;西学&lt;/strong&gt;.并且,因为&lt;strong&gt;西方人已经建立了庞大的程序世界&lt;/strong&gt;,各种条件齐全,他们拿来就用,所以他们懒得再重新建立新的程序世界,是的,这样看起来没什么不好,但是,根据物质守恒定律,得到了什么,就得付出相应的代价,就得失去什么,天下没有免费的午餐,天上不会掉馅饼.其代价就是我前面说的.&lt;strong&gt;迷失自我,不知自己是哪国人,不知道自己是什么种族,渐渐地无法理解生养自己的文化&lt;/strong&gt;.那么,&lt;strong&gt;我们醒悟后的人&lt;/strong&gt;,应该跟着他们的屁股走吗?与他们一起堕落被同化吗?&lt;strong&gt;不&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;很激烈的，充满感情的陈辞，我似乎能看见这名作者在电脑后打字时颤抖的双手。在面对“外文编程”这个“侵入”中华传统文化的造物的时候，其内心的“国人自尊”产生了非常强的反抗。有人曾经说过，如果太过于强调自尊其实是自卑的另一种表现。就像简爱一样，因为有屈辱的过往，国人的内心其实处在非常消极自卑的状态，而体现在了过度自尊上。同时，强调所谓“精英学者”，看似是对部分“不顾百姓的上层人士”的批驳，其实是对自己无力改变事物的消极抵抗。因为自己无法改变编程社区现状，就将他人扣上帽子进行批驳，然后把自己拉到“人民”的一边来壮大自己的道德力量。&lt;/p&gt;
-
-&lt;p&gt;要让别人看得起你，你自己首先得看得起你自己。这样看来，中国人的心理基础离大国还差得远。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;@rgwan
-我在这里发这个倡议讨论的是 中文版 C# 之实现的可行性,顺便讨论下中文编程的的意义,你却要我去证明你讲的那一套,&lt;strong&gt;你是在命令我吗?你不知道什么叫讨论,探讨,探索是吗?&lt;/strong&gt;
-你认为不好,不高效,也不省事,那就随你呀,这是你的自由,只不过&lt;strong&gt;不要来强加给我就行&lt;/strong&gt;,
-我也没有强加给别人什么,如果是要一个劲地非要硬是把我的原意解读为,我是在要求别的开发团队来实现我的意志,那请便.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;。。或许大部分的高素质中国人都没有自卑问题吧。。这也许就是个个例&lt;/p&gt;
-
-&lt;h2 id=&#34;敌我意识:e052a7a6beb19ffcd39c65f16072d725&#34;&gt;敌我意识&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;既然贴出了我回复你们对我的&amp;quot;谩骂,嘲讽和羞辱&amp;quot;,那咋不把你们自己 &lt;strong&gt;羞辱谩骂嘲讽他人&lt;/strong&gt;的评论也贴出来呢 ?果然是 &lt;strong&gt;小人行径&lt;/strong&gt; .
-我需要澄清一下,这几个账号 pigfromChina bctnry(当然,还有一些) &lt;strong&gt;是在这里反对我的观点并进行人身攻击最多的&lt;/strong&gt; .我初始的时候,并没有在意他们的攻击,但是这反而 &lt;strong&gt;让他们得寸进尺&lt;/strong&gt;. 我觉得有必要说明下他们的 &lt;strong&gt;丑恶&lt;/strong&gt; 行径.
-pigfromChina 他只是贴出了我回复他们对我的&amp;quot;谩骂,嘲讽和羞辱&amp;quot;,但并没有把他们自己,羞辱谩骂嘲讽他人的评论也贴出来呢?他们的行为如何,我无须多言.
-目前,这里有;
-反对中文编程,
-中立,
-支持中文编程,
-野蛮土匪,
-&lt;strong&gt;这几大类人在这个 iss 里&lt;/strong&gt;.不知&lt;strong&gt;你是哪类&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;好的，我们仿佛又回到了那个时代，人与人之间又要开始划左划右，争个你死我活，贴大字报批斗示众。
-无论是在微博还是在任何中文社交平台上，我们对各种“党争”已经见怪不怪了。这样的习惯看来从 萌&lt;del&gt;wen&lt;/del&gt;化 Revolution 给国人的心中种下二分敌我观的种子之后一直继承到了今天。简单地把所有人划为几类，大大方便了逻辑判断，也利于合法化自己对他人的攻击，如果别人反驳就可以用自己的道德大旗来抵挡，真的是非常方便的自欺欺人的手段。二分化的简单思路，扣帽子的习惯，阻止别人来和你站到一条线上（因为别人害怕被你的“大义”捆绑），也阻止有道德有思想的人和你交流（生怕被你攻击，也懒得理你）。当互联网环境充斥着这类人时，其结果就是充斥着不择手段的攻击与诋毁，不停挑战人性的下限（就和几十年前一个结果）。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;duangsuse: 不要给自己臆造幻想中的敌人, 认为别人粗鲁的人首先应该审视自己.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+&lt;p&gt;最近在 Github 的 C# Repo 上看到了一个很搞笑的 &lt;a href=&#34;https://github.com/dotnet/csharplang/issues/993&#34;&gt;issue&lt;/a&gt;，因为内容太长了，恕无法贴出全文 233 大体上是在建议微软为 C#、F#、VB.net 提供一个中文变体，然后关于中文编程的必要性和实现进行辩论。在中国编程圈子里这也算是个老生常谈的话题了，也时常有人在研究实现实验性的编程语言。虽然我对于中文程序语言的必要性不置可否，但是这个 issue 暴露出了一些长久存在于国人身上的问题，我想对此谈谈自己的看法。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>学习态度随记</title>
       <link>http://localhost:1313/posts/xue-xi-tai-du-sui-ji/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Dec 2017 19:15:00 +0000</pubDate>
       
       <guid>http://localhost:1313/posts/xue-xi-tai-du-sui-ji/</guid>
-      <description>&lt;p&gt;今天语文课时老师说了一句让我很有感触的话，说是“有些人不甘平庸努力奋斗，有些人甘于平庸沉于平庸。而最可悲的是那些不甘平庸却又不愿意努力的人，他们的结果比甘于平庸的人还惨，这是最悲哀的。”&lt;/p&gt;
-
-&lt;p&gt;现在看下来，我时常会陷入最后这一种人的情况。不像有些没有志向沉迷玩乐的人，我还是有一点追求的。问题在于，“我不愿意去做个混饭吃的人”到“我有很大的潜力，我只是还没奋斗罢了”，再到“如果我当初奋斗的话，结果绝不会这样”这样的思想过程一般会以一年为一个周期而循环，到头来还是什么都没做到。
-&lt;!-- more --&gt;
-以前我一直奉行一句话，就是“只要努力过了就不会有什么遗憾了”，但我发现这句话有一个陷阱，就是“努力过了”的定义。人的潜力即使不说是无限的那也有很大的空间，而“我努力过了”正是为了自己的不进一步努力所找的借口。比如在学校里努力刷题，回到家之后想“我在学校里已经那么苦了”，就放下作业拿起手机一刷就是一天。若是这样还不如天天均分刷题时间呢。&lt;/p&gt;
-
-&lt;p&gt;这两天问了问班级里一位学习比我更好的同学的经验，听说她在周末每天 12 点睡觉 7 点起床，从 8 点上课上到下午 4 点，周日还有一整天的化学竞赛集训。我倒抽一口冷气：难怪别人学习好！我自己在玩乐休息的时间，别人一直在努力啊！以为自己很努力了永远是一个笑话，因为永远有一堆堆的人比你成倍地努力。&lt;/p&gt;
-
-&lt;p&gt;这不免让人想到，在小学时我认为周末做三个小时作业就很多了，到了初中才发现周末做一天是常态。在初中时认为一周不碰电脑就是很努力了，到了高中才发现周末作业做不完是常有的事。但是在这些转变之后，我却自然地接受了这一切。看来，能促进人进步的常常就是不可抗力的压迫。所以从某种角度来说，大量的作业正是促进我们上进的最好帮手。&lt;/p&gt;
-
-&lt;p&gt;经过上周的实验，我发现去图书馆做作业能大大提高学习效率。一是去一个特定的地点做作业能给人带来仪式感，二是去一个干扰少的地方能避免分心。其实最主要的是，出门最好不要带手机，免得一直翻出来看。特别是 Bilibili QQ Telegram 这种 App，特别容易让人分心。&lt;/p&gt;
-
-&lt;p&gt;有时候，人就要被逼一逼。我打算这周末做做实验，周六周日全天出门做作业，看看效果如何，下周再来总结一下成果。&lt;/p&gt;
-</description>
+      <description>今天语文课时老师说了一句让我很有感触的话，说是“有些人不甘平庸努力奋斗，有些人甘于平庸沉于平庸。而最可悲的是那些不甘平庸却又不愿意努力的人，他们的结果比甘于平庸的人还惨，这是最悲哀的。” 现在看下来，我</description>
     </item>
     
   </channel>

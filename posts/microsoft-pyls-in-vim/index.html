@@ -1,3 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  
+  <meta name="author"
+        content="LightQuantum"/>
+
+  
+  <meta name="description" content="自从上次咕咕咕之后，博客又长草了三个月（逃。当然，我也没想到咕咕咕之后写的第一篇文章竟然是一篇技术文。等等，我最初开这个博客的目的就是写点杂七杂八的技术吧？那我写一些技术类的东西也不会显得奇怪吧？呐？"/>
+  
+
+  
+
+  
+  <link rel="canonical" href="http://localhost:1313/posts/microsoft-pyls-in-vim/"/>
+
+  
+
+  <title>Vim 下使用 Microsoft Python Language Server 补全 &middot; 光子の胡话</title>
+
+  <link rel="shortcut icon" href="http://localhost:1313/images/favicon.ico"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/animate.min.css"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/remixicon.css"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/zozo.css"/>
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight.css"/>
+
+  
+  
+</head>
 
 <body>
 <div class="main animated">
@@ -69,7 +102,7 @@
       <div class="post animated fadeInDown">
         <div class="post_title post_detail_title">
           <h2><a href='/posts/microsoft-pyls-in-vim/'>Vim 下使用 Microsoft Python Language Server 补全</a></h2>
-          <span class="date">0001.01.01</span>
+          <span class="date">2018.12.01</span>
         </div>
         <div class="post_content markdown">
 
@@ -77,7 +110,7 @@
 <p>自从上次咕咕咕之后，博客又长草了三个月（逃。当然，我也没想到咕咕咕之后写的第一篇文章竟然是一篇技术文。等等，我最初开这个博客的目的就是写点杂七杂八的技术吧？那我写一些技术类的东西也不会显得奇怪吧？呐？不会吧？（一个作着文青梦的理工生突然醒悟）啊，意识流的内容我也没想断更，具体以后会写什么东西还是随缘 233</p>
 </blockquote>
 
-<h2 id="初衷:73fe333ef1410e42088669a13cfeffa5">初衷</h2>
+<h2 id="初衷">初衷</h2>
 
 <p>首先我是个 Vim 教徒，在 Vim 下写 Python 也写了一年多了。自然，Python 补全肯定是一直在用的。我之前用的一直是基于 Jedi 的补全方案，效果也不错，就是补全出现速度稍微有一点～点慢。不过由于用了异步的补全框架 <a href="https://github.com/ncm2/ncm2">ncm2/ncm2</a>，所以觉得海星（这里先提一个醒，我之前一直在用的 <a href="https://github.com/Shougo/deoplete.nvim">Shougo/deoplete</a> 有坑，用起来觉得超级卡，还甩锅 Jedi，等换了 ncm2 之后丝般顺滑...）。</p>
 
@@ -85,12 +118,12 @@
 
 <p>最近发现微软造了个新轮子，把 VS Studio 里的 Python 语义补全拿出来了，听说效果很不错，而且已经有 Emacs 社区的大神成功将其引入 Emacs（中文：<a href="https://emacs-china.org/t/microsoft-python-language-server/7665">Emacs China</a> 英语：<a href="https://vxlabs.com/2018/11/19/configuring-emacs-lsp-mode-and-microsofts-visual-studio-code-python-language-server/">vxlabs</a>）。听已经用上的人说，补全速度极快，而且由于用的是 C#，后台是多线程进行分析的，效率很高。这激起了我想在 Vim 上吃上微软 Python 补全螃蟹的欲望。</p>
 
-<h2 id="lsp:73fe333ef1410e42088669a13cfeffa5">LSP</h2>
+<h2 id="lsp">LSP</h2>
 
 <p>既然 Microsoft Python Language Server（下称 mspyls）是微软实现的，它的通讯接口自然是微软自己提出的 Language Server Protocol（下称 lsp）。这个协议正在逐渐成为各类补全服务的通用统一协议。对于 lsp 的详细介绍，可以从<a href="https://langserver.org/">这个</a>地方了解。简单地来说，它可以让语言分析实现和前台的 IDE 或者文本编辑器分离，让文本编辑部分和语言补全分析部分解耦，从而可以任意搭配。也就是说，如果我想在 Vim 上补全 Python，我既可以用 mspyls，也可以用 jedi。反过来，如果我想用 mspyls 补全，我既可以用 Vim，也可以用 Emacs， 当然 VSCode 和 Atom 什么的都可以。正是因为这个原因，mspyls 有强大的泛用性，可以很容易地在 Vim 上跑起来。
 细节上来说，LSP 基于 JSON-RPC，可以通过 stdio 通信，也可以用 tcp 通信（所以 IDE 和语言服务可以跑在不同的机器上哦～）。关于现在有哪些语言服务能用，以及有多少编辑器可用，都可以在 <a href="https://langserver.org/">langserver</a> 上查到。</p>
 
-<h2 id="编译-mspyls:73fe333ef1410e42088669a13cfeffa5">编译 mspyls</h2>
+<h2 id="编译-mspyls">编译 mspyls</h2>
 
 <p>由于我用着 Linux，所以下面的指令只适用 Linux，Windows 平台的话编译过程应该没差多少吧，网上应该也有不少的资料。
 首先安装 .net core，Archlinux 下就可以直接 sudo pacman -S dotnet-sdk 一键解决（吹爆我大 Archlinux 神教！）
@@ -115,7 +148,7 @@ Time Elapsed 00:00:07.36
 
 <p>不出意外，就可以在 ../../../output/bin/Release 下找到 Microsoft.Python.LanguageServer.dll，用 dotnet Microsoft.Python.LanguageServer.dll 命令运行一下，没有报错（也没有回显 - -）就成功了！</p>
 
-<h2 id="languageclient-neovim:73fe333ef1410e42088669a13cfeffa5">LanguageClient-neovim</h2>
+<h2 id="languageclient-neovim">LanguageClient-neovim</h2>
 
 <p>在 Neovim 上其实已经有很多 LSP 的客户端插件了，个人用下来最完全体的，是 <a href="https://github.com/autozimu/languageclient-neovim">autozimu/languageclient-neovim</a>。
 首先，安装插件就不细说了，vim-plug 或者 dein 都是可以的（就是 Vundle 已经停止维护了，如果还在用 Vundle 的话，还是尽快切换成前两者吧），针对选择困难症，我无脑推荐 dein。为什么？因为我用的就是 dein（233
@@ -184,7 +217,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 inoremap &lt;expr&gt; &lt;CR&gt; (pumvisible() ? &quot;\&lt;c-y&gt;\&lt;cr&gt;&quot; : &quot;\&lt;CR&gt;&quot;)
 </code></pre>
 
-<h2 id="结论:73fe333ef1410e42088669a13cfeffa5">结论</h2>
+<h2 id="结论">结论</h2>
 
 <p>不出事故的话，补全应该已经可以用了～（虽然我觉得，应该有不小的概率会出毛病，我之前就调了两个钟头... 因为会出问题的地方太多了，我也不清楚具体会有哪些环节出问题 QAQ 如果出了问题，就只能一点点查了。而且好像 Vim 上的 mspyls 基本没人研究，资料应该挺少的 emm）
 试了一下，发现... 诶？速度好像是可以，基本是秒出补全，半秒都没有，估计只有几十毫秒的 lag。可是这为啥每次补全之前的初始化要那么久啊？一个小的脚本需要四五秒之后才能开始补全，大的项目的话，有人初始化整整初始化了 4 个小时- -。还有，好像有些 module 的补全提示有点问题，比如 requests 的 get 方法拿到的对象，补全都是 built-in functions，根本没有在能用的方法... 还有各种奇奇怪怪的 import 问题，可以在 repo 的 issues 下看到。
