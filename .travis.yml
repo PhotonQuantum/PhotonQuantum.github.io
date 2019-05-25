@@ -1,26 +1,17 @@
-language: node_js
-node_js: stable
-cache:
-    apt: true
-    directories:
-        - node_modules
+language: minimal
+dist: xenial
 install:
-    - npm install
-    - npm rebuild node-sass --force
+    - sudo snap install hugo
 before_install:
     - export TZ='Asia/Shanghai'
-    - npm install hexo-cli -g
     - chmod +x ./publish.sh
-    - chmod +x ./setup.sh
-    - ./setup.sh
 after_script:
     - ./publish.sh
 script:
-    - hexo clean
-    - hexo g
+    - hugo
 branches:
     only:
-        - hexo
+        - hugo
 env:
     global:
         # Github Pages

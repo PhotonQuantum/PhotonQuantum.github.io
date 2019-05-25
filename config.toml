@@ -1,0 +1,65 @@
+baseURL = "https://lightquantum.xyz"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "光子の胡话"                    # site title  # 网站标题
+theme = "zozo"
+hasCJKLanguage = true                # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+summaryLength = 100
+paginate = 7                         # shows the number of articles  # 首页显示文章数量
+enableEmoji = true
+googleAnalytics = ""                 # your google analytics id
+disqusShortname = ""                 # your discuss shortname
+
+[author]                             # essential                     # 必需
+  name = "LightQuantum"
+
+[blackfriday]
+  smartypants = false
+
+[[menu.main]]                        # config your menu  # 配置菜单
+  name = "首页"
+  weight = 10
+  identifier = "home"
+  url = "/"
+[[menu.main]]
+  name = "归档"
+  weight = 20
+  identifier = "archive"
+  url = "/posts/"
+[[menu.main]]
+  name = "标签"
+  weight = 30
+  identifier = "tags"
+  url = "/tags/"
+[[menu.main]]
+  name = "关于"
+  weight = 40
+  identifier = "about"
+  url = "/about/"
+
+[params]
+  subTitle = "一颗正在寻求解脱的迷茫心灵。"                                       # site's subTitle  # 网站二级标题
+  footerSlogan = "长草的精神家园"                                          # site's footer slogan  # 网站页脚标语
+  # keywords = ["Hugo", "theme","zozo"]                                  # site's keywords  # 网站关键字
+  description = "LightQuantum 的博客"                        # site's description  # 网站描述
+
+# mathjax
+  enableMathJax = false                                                 # enable mathjax  # 是否使用mathjax（数学公式）
+
+  enableSummary = true                                                 # display the article summary  # 是否显示文章摘要
+  
+# Valine.
+# You can get your appid and appkey from https://leancloud.cn
+# more info please open https://valine.js.org
+[params.valine]
+  enable = false
+  appId = "Oy6LnSi9WjBpWHpbDgAohlET-gzGzoHsz"
+  appKey = "Ku78lXSFuySO9aJk7k5DwqMz"
+  placeholder = " "
+  visitor = true
+
+[social]
+  github = "https://github.com/PhotonQuantum"
+  twitter = "https://twitter.com/LightQuantumhah"
+  zhihu = "https://www.zhihu.com/people/chen-yan-zhu-85/activities"
+  telegram = "https://telegram.me/lightquantum"
