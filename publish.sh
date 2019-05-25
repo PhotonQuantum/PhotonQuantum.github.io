@@ -7,6 +7,7 @@ cd ../
 mv .deploy_git/.git/ ./public/
 cd ./public
 echo lightquantum.xyz > CNAME
+cp ../.circleci ./ -r
 git config user.name "PhotonQuantum"
 git config user.email "cy.n01@outlook.com" 
 git add .
