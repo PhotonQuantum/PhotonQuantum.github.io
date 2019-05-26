@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/lightquantum
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://lightquantum.xyz
+  * I am lightquantum (https://keybase.io/lightquantum) on keybase.
+  * I have a public key ASDpl5A3MxRInqV2rvJnpmqhVX3MNGNh-9l8kUsksXg8xAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01014ce9e0a0086b53c035973cf2ec399655d768ab33cea31cd641fa3f4ddd1cae6f0a",
+      "host": "keybase.io",
+      "kid": "0120e99790373314489ea576aef267a66aa1557dcc346361fbd97c914b24b1783cc40a",
+      "uid": "efde3fde1e0b57857faef7f2d337fb19",
+      "username": "lightquantum"
+    },
+    "merkle_root": {
+      "ctime": 1558871760,
+      "hash": "8ab2f1676d26f225cb5efb68f33c0f7b91849fa5822460a66400ddb53af7fef8d5af53fd166535a3c111204a1df8ee5803a2638fc503cbe75a43b5454170480b",
+      "hash_meta": "5d663d477fc7f4dfaa865577cc7e27ca147a25b6e2f4055adde2c1f5f08eb87d",
+      "seqno": 5449919
+    },
+    "service": {
+      "entropy": "3YAOlGyeltlbb/iJ2SZJCO0h",
+      "hostname": "lightquantum.xyz",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.0.0"
+  },
+  "ctime": 1558871775,
+  "expire_in": 504576000,
+  "prev": "3ecf9330cbc78e02f9562a23a211f25514ae55fa3918889e6178ef65e8a963ad",
+  "seqno": 24,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg6ZeQNzMUSJ6ldq7yZ6ZqoVV9zDRjYfvZfJFLJLF4PMQKp3BheWxvYWTESpcCGMQgPs+TMMvHjgL5ViojohHyVRSuVfo5GIieYXjvZeipY63EIG0U4gkCUZIJH7KOvV2+TCnk56gySi2/DMj/lO/YOCDQAgHCo3NpZ8RAaeKxVNg4vmg07udCmlmV5Zyfxns4936Ofv9bCmTXsCj1SYIorCqqAwvVBP+fJ7C3bctLgzzIXMH3KghzBATBBahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIFKkzSAcQ/Y5Qhqot8fJQq3Mvglw+29FIt6x5GTvnl7Ro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/lightquantum
+
+==================================================================
