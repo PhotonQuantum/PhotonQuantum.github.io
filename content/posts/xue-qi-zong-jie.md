@@ -1,7 +1,7 @@
 ---
 title: 学期总结
 date: 2018-01-22 17:39:41
-tag:
+tags:
   - 想法
 categories:
   - 心灵花园
