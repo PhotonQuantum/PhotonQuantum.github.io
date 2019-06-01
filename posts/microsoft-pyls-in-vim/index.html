@@ -19,7 +19,7 @@ Build succeeded.
 Time Elapsed 00:00:07.36
 </code></pre><p>不出意外，就可以在 ../../../output/bin/Release 下找到 Microsoft.Python.LanguageServer.dll，用 dotnet Microsoft.Python.LanguageServer.dll 命令运行一下，没有报错（也没有回显 - -）就成功了！</p><h2 id=languageclient-neovim>LanguageClient-neovim</h2><p>在 Neovim 上其实已经有很多 LSP 的客户端插件了，个人用下来最完全体的，是 <a href=https://github.com/autozimu/languageclient-neovim>autozimu/languageclient-neovim</a>。
 首先，安装插件就不细说了，vim-plug 或者 dein 都是可以的（就是 Vundle 已经停止维护了，如果还在用 Vundle 的话，还是尽快切换成前两者吧），针对选择困难症，我无脑推荐 dein。为什么？因为我用的就是 dein（233
-之后，需要对插件进行一些配置，将 Python 的默认语言服务从 Jedi 实现改成 mspyls。</p><p><strong>记得修改&lt;...&gt;到你刚刚编译的目录！</strong></p><pre><code class=language-plain>let g:LanguageClient_serverCommands = {
+之后，需要对插件进行一些配置，将 Python 的默认语言服务从 Jedi 实现改成 mspyls。</p><p><strong>记得修改&lt;...&gt;到你刚刚编译的目录！</strong></p><pre><code>let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/bin/dotnet', 'exec', '/&lt;...&gt;/output/bin/Release/Microsoft.Python.LanguageServer.dll']
 \ }
 let g:LanguageClient_loggingFile = &quot;/tmp/LC.log&quot;
@@ -45,7 +45,7 @@ let g:LanguageClient_loggingLevel = &quot;DEBUG&quot;
   }
 }
 </code></pre><p><strong>还是记得改 &lt;...&gt;！InterpreterPath 就是 Python 解释器的路径，Linux 下一般是 /usr/bin/python，可以用 whereis 命令来找。Version 就是 Python 版本，我个人是 3.7.0。</strong></p><p>其实是有一种方法，可以对 Python 全局设定 LSP 参数，不用创建局部的配置文件。然而，我比较懒不想配置了 233，各位可以去 LanguageClient 的 Github 页面，参照例子修改 233</p><blockquote><p>补充 例子在 <a href=https://github.com/autozimu/LanguageClient-neovim/wiki/yaml-language-server>yaml</a> 页面里，里面的 Method 2 就是了</p></blockquote><p>这之后不要忘了装一个补全框架，Vim 默认的实现其实挺不顺手的。个人建议用一些异步的实现，比如之前提到的 ncm2。记得查看插件的 Github Repo，有一些依赖和配置建议。不看的话很有可能会报出一大堆错啊 233
-如果你用了 ncm2，还可以对补全设定加上一些小 tweaks。我个人用的配置是</p><pre><code class=language-plain>&quot; 这里是对于 Multiple Cursors 插件的 workaround，没有这个插件的话就不用了
+如果你用了 ncm2，还可以对补全设定加上一些小 tweaks。我个人用的配置是</p><pre><code>&quot; 这里是对于 Multiple Cursors 插件的 workaround，没有这个插件的话就不用了
 function g:Multiple_cursors_before()
   call ncm2#lock('multiple_cursors')
 endfunction
