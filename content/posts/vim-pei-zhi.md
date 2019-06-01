@@ -63,22 +63,22 @@ dein.vim 可以配置成在启动 vim 的时候安装不存在的插件，而且
 ### 外观
 ![one](/images/vim-one-md.png)
 对于每天都使用的编辑器，使用一个适合的主题很重要。我个人比较喜欢 [one]("https://github.com/rakr/vim-one") 的白色主题。
-```
+```plain
 ColorScheme one
 set background=dark
 set background=light
 ```
 
 然后改造 Vim 的状态栏，为其添加一条色彩鲜艳的 Powerline。（Powerline 的 Vim 版已经失去支持，现在仍在活跃开发的有 [lightline](https://github.com/itchyny/lightline.vim) 和 [airline](https://github.com/vim-airline/vim-airline)。相对来说，lightline 更加轻量，而 airline 开箱即用，和其他很多插件都有自带整合。airline 还可以安装 [airline-themes](https://github.com/vim-airline/vim-airline-themes) 获取各类主题。
-```
+```plain
 let g:airline_theme='one'
 ```
 如果你的字体打过补丁，还可以开启 powerline font 特性进一步美化显示。
-```
+```plain
 let g:airline_powerline_fonts=1
 ```
 因为有了 airline，默认的状态显示就可以关掉了
-```
+```plain
 set noshowmode
 ```
 
