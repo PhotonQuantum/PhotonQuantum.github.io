@@ -18,7 +18,7 @@ jobs:
       - run: git submodule sync && git submodule update --init --recursive
 
       # build with Hugo
-      - run: HUGO_ENV=production hugo --minify
+      - run: HUGO_ENV=production hugo --minify -F
 
       # `deploy` step: identical to a `run` step, but uses only one container:
       # https://circleci.com/docs/2.0/configuration-reference/#deploy 
