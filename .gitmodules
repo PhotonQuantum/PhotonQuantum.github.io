@@ -1,3 +1,6 @@
 [submodule "themes/zozo"]
 	path = themes/zozo
 	url = https://github.com/imzeuk/hugo-theme-zozo
+[submodule "themes/hermit"]
+	path = themes/hermit
+	url = https://github.com/Track3/hermit.git

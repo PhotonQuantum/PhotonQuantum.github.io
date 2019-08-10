@@ -1,65 +1,78 @@
-baseURL = "https://lightquantum.xyz"
+baseURL = "https://public.lightquantum.xyz"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
-title = "光子の胡话"                    # site title  # 网站标题
-theme = "zozo"
-hasCJKLanguage = true                # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-summaryLength = 100
-paginate = 7                         # shows the number of articles  # 首页显示文章数量
-enableEmoji = true
-googleAnalytics = ""                 # your google analytics id
-disqusShortname = ""                 # your discuss shortname
+title = "光子の胡话"
+theme = "hermit"
+enableGitInfo = true
+pygmentsCodefences  = true
+pygmentsUseClasses  = true
+hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
+rssLimit = 10  # Maximum number of items in the RSS feed.
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
+enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
+# googleAnalytics = "UA-123-45"
+# disqusShortname = "yourdiscussshortname"
 
-[author]                             # essential                     # 必需
-  name = "LightQuantum"
+[author]
+  name = "John Doe"
 
 [blackfriday]
-  smartypants = false
+  # hrefTargetBlank = true
+  # noreferrerLinks = true
+  # nofollowLinks = true
 
-[[menu.main]]                        # config your menu  # 配置菜单
-  name = "首页"
-  weight = 10
-  identifier = "home"
-  url = "/"
-[[menu.main]]
-  name = "归档"
-  weight = 20
-  identifier = "archive"
-  url = "/posts/"
-[[menu.main]]
-  name = "标签"
-  weight = 30
-  identifier = "tags"
-  url = "/tags/"
-[[menu.main]]
-  name = "关于"
-  weight = 40
-  identifier = "about"
-  url = "/about/"
+[taxonomies]
+  tag = "tags"
+  # Categories are disabled by default.
 
 [params]
-  subTitle = "一颗正在寻求解脱的迷茫心灵。"                                       # site's subTitle  # 网站二级标题
-  footerSlogan = "长草的精神家园"                                          # site's footer slogan  # 网站页脚标语
-  # keywords = ["Hugo", "theme","zozo"]                                  # site's keywords  # 网站关键字
-  description = "LightQuantum 的博客"                        # site's description  # 网站描述
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04 -0700"
 
-# mathjax
-  enableMathJax = false                                                 # enable mathjax  # 是否使用mathjax（数学公式）
+  # Metadata mostly used in document's head
+  # description = ""
+  # images = [""]
+  themeColor = "#494f5c"
 
-  enableSummary = true                                                 # display the article summary  # 是否显示文章摘要
-  
-# Valine.
-# You can get your appid and appkey from https://leancloud.cn
-# more info please open https://valine.js.org
-[params.valine]
-  enable = false
-  appId = "Oy6LnSi9WjBpWHpbDgAohlET-gzGzoHsz"
-  appKey = "Ku78lXSFuySO9aJk7k5DwqMz"
-  placeholder = " "
-  visitor = true
+  homeSubtitle = "一颗正在寻求解脱的迷茫心灵"
+  footerCopyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+  # bgImg = ""  # Homepage background-image URL
 
-[social]
-  github = "https://github.com/PhotonQuantum"
-  twitter = "https://twitter.com/LightQuantumhah"
-  zhihu = "https://www.zhihu.com/people/chen-yan-zhu-85/activities"
-  telegram = "https://telegram.me/lightquantum"
+  # Prefix of link to the git commit detail page. GitInfo must be enabled.
+  # gitUrl = "https://github.com/username/repository/commit/"
+
+  # Toggling this option needs to rebuild SCSS, requires Hugo extended version
+  justifyContent = false  # Set "text-align: justify" to `.content`.
+
+  relatedPosts = false  # Add a related content section to all single posts page
+
+  # Add custom css
+  # customCSS = ["css/foo.css", "css/bar.css"]
+
+  # Social Icons
+  # Check https://github.com/Track3/hermit#social-icons for more info.
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/"
+
+  [[params.social]]
+    name = "instagram"
+    url = "https://instagram.com/"
+
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/"
+
+[menu]
+
+  [[menu.main]]
+    name = "Posts"
+    url = "posts/"
+    weight = 10
+
+  [[menu.main]]
+    name = "About"
+    url = "about-hugo/"
+    weight = 20
