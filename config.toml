@@ -53,8 +53,8 @@ disqusShortname = ""                 # your discuss shortname
 # more info please open https://valine.js.org
 [params.valine]
   enable = true
-  appId = "<leancloud_apiid>"
-  appKey = "<leancloud_apikey>"
+  appId = "EUSqN6YIrhbDhFH3newWdq8P-MdYXbMMI"
+  appKey = "9KxM7yNOeKuVG8bCeptApsG6"
   placeholder = " "
   visitor = true
 
