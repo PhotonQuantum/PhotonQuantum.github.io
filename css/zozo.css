@@ -161,10 +161,10 @@ hr {
     font-weight: bold; }
   .post .list p {
     padding-bottom: 0 !important; }
+  .post .summary p {
+    margin: 0; }
   .post .post_content {
     word-break: normal; }
-    .post .post_content .summary p {
-      margin: 0; }
     .post .post_content p {
       line-height: 2em;
       letter-spacing: 0.2px;

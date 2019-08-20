@@ -235,14 +235,14 @@ hr {
     padding-bottom: 0 !important;
   }
 
+  .summary {
+    p {
+      margin: 0;
+    }
+  }
+
   .post_content {
     word-break: normal;
-
-    .summary {
-      p {
-        margin: 0;
-      }
-    }
 
     p {
       line-height: 2em;
