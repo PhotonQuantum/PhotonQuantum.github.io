@@ -3,6 +3,7 @@ title: Vim 下使用 Microsoft Python Language Server 补全
 date: 2018-12-01 12:54:00
 tags:
   - 技术
+  - 计算机
 categories:
   - 技术杂谈
 ---
