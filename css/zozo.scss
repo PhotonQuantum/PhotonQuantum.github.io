@@ -238,6 +238,12 @@ hr {
   .post_content {
     word-break: normal;
 
+    .summary {
+      p {
+        margin: 0;
+      }
+    }
+
     p {
       line-height: 2em;
       letter-spacing: 0.2px;
