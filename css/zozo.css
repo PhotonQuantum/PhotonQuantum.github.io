@@ -162,7 +162,7 @@ hr {
   .post .list p {
     padding-bottom: 0 !important; }
   .post .summary p {
-    margin: 0; }
+    margin: 0 !important; }
   .post .post_content {
     word-break: normal; }
     .post .post_content p {
