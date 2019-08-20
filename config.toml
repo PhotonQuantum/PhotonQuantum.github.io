@@ -52,9 +52,9 @@ disqusShortname = ""                 # your discuss shortname
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
 [params.valine]
-  enable = false
-  appId = "Oy6LnSi9WjBpWHpbDgAohlET-gzGzoHsz"
-  appKey = "Ku78lXSFuySO9aJk7k5DwqMz"
+  enable = true
+  appId = "<leancloud_apiid>"
+  appKey = "<leancloud_apikey>"
   placeholder = " "
   visitor = true
 
@@ -62,4 +62,4 @@ disqusShortname = ""                 # your discuss shortname
   github = "https://github.com/PhotonQuantum"
   twitter = "https://twitter.com/LightQuantumhah"
   zhihu = "https://www.zhihu.com/people/chen-yan-zhu-85/activities"
-  telegram = "https://telegram.me/lightquantum"
+ telegram = "https://telegram.me/lightquantum"
