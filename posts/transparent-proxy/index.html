@@ -1,0 +1,87 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content=LightQuantum><meta name=description content="概述 最近我新收了一台 Apple TV 3，遂发现垃圾苹果没有给出任何代理设置，导致无法观看大部分海外节目。为了解决这个问题，有必要搭建一个透明代理网关，实现免配置代理。实测搭建后可以完美收看所有节目，并且局域网中的"><link rel=canonical href=https://lightquantum.xyz/posts/transparent-proxy/><title>透明代理 &middot; 光子の胡话</title><link rel="shortcut icon" href=https://lightquantum.xyz/images/favicon.ico><link rel=stylesheet href=https://lightquantum.xyz/css/animate.min.css><link rel=stylesheet href=https://lightquantum.xyz/css/remixicon.css><link rel=stylesheet href=https://lightquantum.xyz/css/zozo.css><link rel=stylesheet href=https://lightquantum.xyz/css/highlight.css></head><body><div class="main animated"><div class="nav_container animated fadeInDown"><div class=site_nav id=site_nav><ul><li><a href=/>首页</a></li><li><a href=/posts/>归档</a></li><li><a href=/tags/>标签</a></li><li><a href=/about/>关于</a></li></ul></div><div class=menu_icon><a id=menu_icon><i class=remixicon-links-line></i></a></div></div><div class="header animated fadeInDown"><div class=site_title_container><div class=site_title><h1><a href=https://lightquantum.xyz><span>光子の胡话</span>
+<img src=https://lightquantum.xyz/images/logo.svg></a></h1></div><div class=description><p class=sub_title>一颗正在寻求解脱的迷茫心灵。</p><div class=my_socials><a href=https://github.com/PhotonQuantum title=github target=_blank><i class=remixicon-github-fill></i></a><a href=https://telegram.me/lightquantum title=telegram target=_blank><i class=remixicon-telegram-fill></i></a><a href=https://twitter.com/LightQuantumhah title=twitter target=_blank><i class=remixicon-twitter-fill></i></a><a href=https://www.zhihu.com/people/chen-yan-zhu-85/activities title=zhihu target=_blank><i class=remixicon-zhihu-fill></i></a><a href=https://lightquantum.xyz/index.xml type=application/rss+xml title=rss target=_blank><i class=remixicon-rss-fill></i></a></div></div></div></div><div class=content><div class=post_page><div class="post animated fadeInDown"><div class="post_title post_detail_title"><h2><a href=/posts/transparent-proxy/>透明代理</a></h2><span class=date>2019.08.20</span></div><div class="post_content markdown"><h1 id=概述>概述</h1><p>最近我新收了一台 Apple TV 3，遂发现垃圾苹果没有给出任何代理设置，导致无法观看大部分海外节目。为了解决这个问题，有必要搭建一个透明代理网关，实现免配置代理。实测搭建后可以完美收看所有节目，并且局域网中的设备都可以无感 fq。</p><h1 id=硬件>硬件</h1><ul><li>Raspberry Pi 一个</li><li>网线</li><li>任意路由器</li></ul><p>本来我想直接购买智能路由，在路由上跑个代理，但是发现路由器配置普遍不强，有高性能 ARM CPU 的路由器价格动辄上千。如果 CPU 频率不够高，很容易成为代理速度的瓶颈，使用体验又会很差。所以不如直接花小几百买个树莓派跑代理，总成本低，性能还更好。</p><p>我使用了 Raspberry Pi 3B，其他型号应该也可以，差别不大。要注意的是 4 以下的型号 Ethernet 带宽只有 100M，由于所有数据无论走不走代理都要从派上过，对土豪和局域网串流来说这带宽是不够用的，建议一步到位买个最新的 4，或者购买 NanoPi Neo Plus 2 等有 1Gbps 的设备。同理，不建议使用无线，稳定性也不行，直接上有线吧。</p><p>路由器的话普通的和智能的都能用，但是一定要注意其是否有 <strong>设置网关</strong> 的功能。如果有的话是最好，没有的话就需要关闭路由器自己的 DHCP Server，由派来告知局域网设备网关地址。市面上大部分路由器都是可以关闭 DHCP 的。</p><h1 id=实现>实现</h1><h2 id=archlinux-arm>Archlinux ARM</h2><p>作为 Archlinux 教成员，强烈推荐在派上安装 Archlinux ARM。Archlinux 是一个滚动更新的发型版，秉持 KISS(Keep It Simple Stupid) 原则，在嵌入式系统上部署是再好不过了。包非常新，而且有强大的 AUR 系统，不会有 Raspbian 等系统会有的上古神包问题。和自带 Raspbian 不同，Archlinux Arm 默认不带图形界面，可以节省下不小的 Overhead。实测运行状态下内存占用在 100m 左右，load 在 0.2 以下。</p><p>以下配置都以 Archlinux ARM 为准。</p><h2 id=配置之前>配置之前</h2><p>关闭烦人的 systemd-resolved，免得造成 DNS 被魔改，端口被占等麻烦。</p><pre><code>sudo systemctl disable --now systemd-resolved
+</code></pre><p>然后删除 /etc/resolv.conf 软链接，创建新的 resolv.conf，写入：</p><pre><code>nameserver 223.5.5.5
+</code></pre><p>防止别的 daemon 修改：</p><pre><code>sudo chattr +i /etc/resolv.conf
+</code></pre><h2 id=clash>Clash</h2><p>强力推荐 <a href=https://github.com/Dreamacro/clash>Clash</a>，支持多种协议，自带 HTTP、SOCKS5、REDIR 代理，还带有一个简易的抗污染 DNS。而且，已经有不少代理服务提供商在给出 Clash 订阅配置文件了，更有提供了分流策略的商家，可以节省大量配置时间。</p><p>Clash 并不在官方 Repository 中，需要自行到 aur 下载。</p><pre><code>git clone https://aur.archlinux.org/clash-bin.git
+cd clash-bin
+</code></pre><p>记得修改 PKGBUILD 文件，把 Arch 从 x86-64 改成 armv7h。然后打包安装。</p><pre><code>makepkg -si
+</code></pre><p>关于标准配置不再赘述，假设已经部署基本代理和分流配置，REDIR 监听在 <em>&lt;REDIR_PORT&gt;</em> ，SOCKS5 监听在 <em>&lt;SOCKS_PORT&gt;</em> 。接下来需要配置简易的防污染 DNS。</p><p>Clash 有多种 DNS 模式，其中：</p><ul><li>redir-host
+首先查询不可信 DNS，如果返回了海外的 IP，则查询可信 DNS 并返回可信结果，如果返回国内 IP，就直接返回不可信结果。另外，此模式下所有的请求在转发时都发送 Host，而不是 IP，这样即使得到了污染 IP，远端仍然能解析出正确的 IP。</li><li>fake-ip
+直接返回虚 IP，当收到代理请求时再让远端解析成正确 IP。</li></ul><p>为了防止设备本地的 DNS Cache 被弄脏，这里使用 redir-host 模式。在配置文件里加这么一段：</p><pre><code>dns:
+  enable: true
+  enhanced-mode: redir-host
+  fallback: ['udp://127.0.0.1:&lt;DNSCRYPT_PROXY_PORT&gt;']
+  ipv6: false
+  listen: 0.0.0.0:&lt;CLASH_DNS_PORT&gt;
+  nameserver: [223.5.5.5, 'tls://dns.rubyfish.cn:853']
+</code></pre><p><em>nameserver</em> 中可以使用任意喜欢的国内 DNS。注意：<em>&lt;DNSCRYPT_PROXY_PORT&gt;</em> 是之后将配置的 dnscrypt_proxy 的监听端口，<em>&lt;CLASH_DNS_PORT&gt;</em> 是 Clash 的抗污染 DNS 的监听端口。如果想让 Clash 跑在普通用户上，记得安排一个高端口。</p><p>将配置文件保存在 ~/.config/clash/config.yml，随后就可以通过 systemd 启动 Clash 服务。</p><pre><code>sudo systemctl enable --now clash@&lt;user&gt;
+</code></pre><p>其中，<em>&lt;user&gt;</em> 是你的用户名，比如 alarm。</p><h2 id=dnscrypt-proxy>DnsCrypt-Proxy</h2><p>这是一个 DoT &amp; DoH 客户端，可以通过 TLS/HTTPS 协议查询到可信的 DNS 结果，用来给 Clash 提供可信 DNS。这个包在官方仓库中，可以直接安装。</p><pre><code>sudo pacman -S dnscrypt-proxy
+</code></pre><p>配置文件在 /etc/dnscrypt-proxy/dnscrypt-proxy.toml。之后进行简单的配置修改（下面的内容是标准的 diff 输出）</p><pre><code>30c30
+&lt; # server_names = ['scaleway-fr', 'google', 'yandex', 'cloudflare']
+---
+&gt;  server_names = ['google', 'cloudflare']
+36c36
+&lt; listen_addresses = ['127.0.0.1:53', '[::1]:53']
+---
+&gt; listen_addresses = ['127.0.0.1:&lt;DNSCRYPT_PROXY_PORT&gt;']
+95c95
+&lt; # proxy = &quot;socks5://127.0.0.1:9050&quot;
+---
+&gt; proxy = &quot;socks5://127.0.0.1:&lt;SOCKS_PORT&gt;&quot;
+193c193
+&lt; fallback_resolver = '9.9.9.9:53'
+---
+&gt; fallback_resolver = '223.5.5.5:53'
+220c220
+&lt; netprobe_address = &quot;9.9.9.9:53&quot;
+---
+&gt; netprobe_address = &quot;223.5.5.5:53&quot;
+</code></pre><p>记得把 <em>&lt;SOCKS_PORT&gt;</em> 改成 Clash 的 Socks5 监听端口，并且 <em>&lt;DNSCRYPT_PROXY_PORT&gt;</em> 和 Clash 中设置的一致。</p><p>然后就可以直接启动服务了。</p><pre><code>sudo systemctl enable --now dnscrypt-proxy
+</code></pre><h2 id=iptables>iptables</h2><p>之后就需要配置 iptables，将所有的入站流量 redirect 到 Clash 上，并且劫持 DNS 请求到 Clash DNS 上了。</p><p>改写 nat 表：</p><pre><code>sudo iptables -t nat -A PREROUTING -i eth0 -p tcp -j REDIRECT --to-ports 9090
+sudo iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 9653
+sudo iptables -t nat -A OUTPUT -d 127.0.0.1/32 -p udp -m udp --dport 53 -j REDIRECT --to-ports 9653
+sudo iptables -t nat -A POSTROUTING -j MASQUERADE
+</code></pre><p>然后持久化配置（记得要有 root 权限）：</p><pre><code>iptables-save &gt; /etc/iptables/iptables.rules
+</code></pre><p>随后启动 systemd 服务以在每次重启后恢复配置：</p><pre><code>sudo systemctl enable --now iptables
+</code></pre><h2 id=设置静态-ip>设置静态 IP</h2><p>因为马上就要将 DHCP 指向派，就不能指望通过 DHCP 来获得树莓派的 IP、Gateway 等信息了。</p><p>修改 DHCP Client 设置（/etc/dhcpcd.conf）：</p><pre><code>interface eth0
+static ip_address=&lt;STATIC_IP&gt;/24
+static routers=&lt;ORIGIN_GATEWAY&gt;
+static domain_name_servers=223.5.5.5
+</code></pre><p>把 <em>&lt;STATIC_IP&gt;</em> 改成想指派给树莓派的 IP，<em>&lt;ORIGIN_GATEWAY&gt;</em> 改成原路由器 IP。</p><p>然后启动 DHCP Client：</p><pre><code>sudo systemctl enable --now dhcpcd
+</code></pre><h2 id=设置网关>设置网关</h2><p>根据实际情况，二选一即可。</p><h3 id=直接在路由设置>直接在路由设置</h3><p>如果路由器有默认网关设置，直接把网关设置成 <em>&lt;STATIC_IP&gt;</em> 就可以了。</p><h3 id=dhcpd>dhcpd</h3><p>如果路由器不能设置默认网关，就需要在本地启动一个新的 DHCP Server，来告知局域网内机器新的网关。</p><pre><code>sudo pacman -S dhcp
+</code></pre><p>然后修改 /etc/dhcpd.conf 的设置</p><pre><code>option domain-name &quot;example.org&quot;;
+option domain-name-servers ns1.example.org, ns2.example.org;
+
+default-lease-time 600;
+max-lease-time 7200;
+
+authoritative;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {                                                            
+    range 192.168.1.5 192.168.1.254;                                                                  
+    option routers &lt;STATIC_IP&gt;;                                                                      
+    option broadcast-address 192.168.1.255;                                                           
+    default-lease-time 600;                                                                           
+    max-lease-time 7200;                                                                              
+    option domain-name-servers &lt;STATIC_IP&gt;;                                                          
+}
+</code></pre><p>一定要将网段和掩码改成你网络的配置，将 <em>&lt;STATIC_IP&gt;</em> 改成给树莓派指派的 IP。</p><p>随后启动 dhcpd</p><pre><code>sudo systemctl enable --now dhcpd4
+</code></pre><p>建议确认 DHCP Server 的运行状况，在 Linux 下可以用 dhcping 确认。</p><pre><code>$ sudo dhcping -s &lt;STATIC_IP&gt;
+Got answer from: &lt;STATIC_IP&gt;
+</code></pre><p>如果收到 No answer 表示配置有误，建议重新配置。</p><p>当确认配置成功后，关闭路由器的 DHCP，重启树莓派，如果一切顺利，就大功告成了。</p><h1 id=尾声>尾声</h1><p>整个过程是有些繁琐的，其实挺容易弄错的（特别是 DHCP 服务器和静态 IP 分配时）。如果遇到问题，可以查询下方的 Troubleshooting 部分，也可以在下面评论。</p><h1 id=troubleshooting>Troubleshooting</h1><h2 id=archlinux-arm-1>Archlinux ARM</h2><h3 id=无法登录-archlinux-arm-的-root-账户>无法登录 Archlinux ARM 的 root 账户</h3><p>Archlinux ARM 默认配置 OpenSSH 禁止 root 登录，只需用 alarm 账户登录，随后用 su 登入 root 即可。</p><h3 id=没有-sudo-命令>没有 sudo 命令</h3><pre><code class=language-bash>pacman -S sudo
+</code></pre><h3 id=缺少-blabla-命令>缺少 blabla 命令</h3><p>可以通过 pkgfile 包来查询命令包含在哪个包里，随后安装。</p><pre><code>sudo pacman -S pkgfile
+sudo pkgfile --update
+</code></pre><p>例：需要 dig 命令</p><pre><code>$ pkgfile dig
+extra/bind-tools
+community/epic4
+$ sudo pacman -S bind-tools
+</code></pre><h2 id=dnscrypt-proxy-1>dnscrypt-proxy</h2><h3 id=无法监听端口>无法监听端口</h3><p>记得关闭 systemd-resolved，防止抢端口</p><h2 id=任何一步之后连不上网了>任何一步之后连不上网了</h2><p>将计算机的 IP 连接方式换成静态，手动输入 IP、Gateway、Mask，然后进路由重启 DHCP 恢复网络，重启树莓派连进去看看发生了什么。
+如果派连不上，用 USB TTL 连接进去（你可能需要 minicom）看看怎么回事。</p><p>常见的问题有：</p><ul><li><p>DHCP Server 因为种种原因没启动</p><pre><code>sudo systemctl status dhcpd4
+</code></pre><p>瞄一眼是不是有人占了端口，或者发生了什么奇怪的事情，然后 Google/Stack Overflow</p></li><li><p>网关或者静态 IP 设置被其他 daemon 动掉了，或者配置有错</p><pre><code>ip addr show
+ip route
+</code></pre><p>看看路由和 IP 是不是配置错了。如果发现 ip route 的返回里有 DHCP 字样，说明 DHCP Client 没配置好，再检查一下，或者没有重启树莓派。如果 addr 和 route 不对，修改相应的配置文件。如果 route 返回为空，大半是 DHCP Client 没启动或者挂了，用 systemctl status 看看运行状态。当然，也有可能是因为有 typo，配置文件没有成功应用，记得仔细检查配置。</p></li><li><p>iptables 规则没有应用
+检查 iptables 服务有没有被 enable。</p></li><li><p>clash 没有启动
+查阅 Clash - 无法启动</p></li></ul><h2 id=clash-1>Clash</h2><h3 id=无法启动>无法启动</h3><pre><code>sudo systemctl status clash@&lt;user&gt;
+</code></pre><p>根据报错排查，有可能是端口被占用的问题，也可能是配置文件格式错误。</p><h3 id=所有的国内网站-dns-全部查询失败>所有的国内网站 DNS 全部查询失败</h3><p>检查 /etc/resolv.conf 是否配置正常。</p><h1 id=进阶>进阶</h1><p>其实 Clash 的 DNS 抗污染实现不是很优雅，会将连接速度尚可而又未被污染的部分海外网站解析到更远的 CDN 节点，这种情况往往发生在有香港节点的网站上。要完全避免这个问题，需要从根本出发，主动探测域名是否被污染。</p><p>安利一波 <a href=https://gitlab.com/NickCao/calorina>Calorina Project</a>，它通过多种策略探测不可信 DNS 解析得到的 IP 是否正确，来判断是否使用可信 DNS 进行解析。Archlinux 用户可以从 <a href=https://aur.archlinux.org/packages/calorina-git>AUR</a> 安装。</p><p>当前这个包存在内存泄漏问题，泄漏的根源在 Golang 上游，暂时没有解决办法。因此，此法暂时不作推荐，待泄漏问题解决后，再更新相关操作。</p><h1 id=后话>后话</h1><p>啊 QAQ 我果然还是不适合写这种教程类文章，总觉得博客里写这种像 ArchWiki 一样的文章感觉很奇怪 TAT</p></div><div class=post_footer><div class=meta><div class=info><span class="field tags"><i class=remixicon-stack-line></i><a href=https://lightquantum.xyz/tags/%E6%8A%80%E6%9C%AF/>技术</a>
+<a href=https://lightquantum.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/>计算机</a></span></div></div></div></div><div class=doc_comments><div class=comments_block_title>发表评论</div><div id=vcomments></div></div><link rel=stylesheet href=https://lightquantum.xyz/css/comments.css><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=//unpkg.com/valine/dist/Valine.min.js></script><script type=text/javascript>new Valine({el:'#vcomments',appId:'EUSqN6YIrhbDhFH3newWdq8P-MdYXbMMI',appKey:'9KxM7yNOeKuVG8bCeptApsG6',placeholder:' ',visitor:'true',})</script></div></div><a id=back_to_top href=# class=back_to_top><span>△</span></a></div><footer class=footer><div class=powered_by><a href=https://zeuk.me>Designed by Zeuk,</a>
+<a href=http://www.gohugo.io/>Proudly published with Hugo</a></div><div class=footer_slogan><span>长草的精神家园</span></div></footer><script src=https://lightquantum.xyz/js/jquery-3.3.1.min.js></script><script src=https://lightquantum.xyz/js/zozo.js></script><script src=https://lightquantum.xyz/js/highlight.pack.js></script><link href=https://lightquantum.xyz/css/fancybox.min.css rel=stylesheet><script src=https://lightquantum.xyz/js/fancybox.min.js></script><script>hljs.initHighlightingOnLoad()</script></body></html>
