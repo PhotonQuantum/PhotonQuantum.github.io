@@ -25,7 +25,7 @@ categories:
 ## Archlinux ARM
 作为 Archlinux 教成员，强烈推荐在派上安装 Archlinux ARM。Archlinux 是一个滚动更新的发型版，秉持 KISS(Keep It Simple Stupid) 原则，在嵌入式系统上部署是再好不过了。包非常新，而且有强大的 AUR 系统，不会有 Raspbian 等系统会有的上古神包问题。和自带 Raspbian 不同，Archlinux Arm 默认不带图形界面，可以节省下不小的 Overhead。实测运行状态下内存占用在 100m 左右，load 在 0.2 以下。
 
-以下配置都以 Archlinux ARM 为准。
+Archlinux ARM 有对 Raspberry Pi 3 的官方支持，请查阅 [官方文档](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3)。以下配置都以 Archlinux ARM 为准。
 
 ## 配置之前
 关闭烦人的 systemd-resolved，免得造成 DNS 被魔改，端口被占等麻烦。
@@ -49,7 +49,7 @@ Clash 并不在官方 Repository 中，需要自行到 aur 下载。
 git clone https://aur.archlinux.org/clash-bin.git
 cd clash-bin
 ```
-记得修改 PKGBUILD 文件，把 Arch 从 x86-64 改成 armv7h。然后打包安装。
+记得修改 PKGBUILD 文件，把 arch 从 x86-64 改成 armv7h。然后打包安装。
 ```
 makepkg -si
 ```
