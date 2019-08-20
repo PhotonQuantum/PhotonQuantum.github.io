@@ -17,6 +17,9 @@ jobs:
       # install git submodules for managing third-party dependencies
       - run: git submodule sync && git submodule update --init --recursive
 
+      # insert leancloud apikey
+      - run: bash preprocess.sh
+
       # build with Hugo
       - run: HUGO_ENV=production hugo --minify -F
 
