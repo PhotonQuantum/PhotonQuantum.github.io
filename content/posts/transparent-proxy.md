@@ -49,7 +49,7 @@ Clash 并不在官方 Repository 中，需要自行到 aur 下载。
 git clone https://aur.archlinux.org/clash-bin.git
 cd clash-bin
 ```
-记得修改 PKGBUILD 文件，把 arch 从 x86-64 改成 armv7h。然后打包安装。
+记得修改 PKGBUILD 文件，把 arch 从 x86-64 改成 armv7h，tar 文件地址里的 amd64 改成 armv7，sha256sums 的最后一个改成 SKIP。然后打包安装。
 ```
 makepkg -si
 ```
