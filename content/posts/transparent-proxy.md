@@ -233,6 +233,9 @@ sudo systemctl status clash@<user>
 ```
 根据报错排查，有可能是端口被占用的问题，也可能是配置文件格式错误。
 
+### 报找不到配置文件
+注意 systemd unit 中定义的配置文件路径是 **~/.config/config.yml** ，不是 **~/.config/config.yaml** ！
+
 # 进阶
 其实 Clash 的 DNS 抗污染实现不是很优雅，会将连接速度尚可而又未被污染的部分海外网站解析到更远的 CDN 节点，这种情况往往发生在有香港节点的网站上。要完全避免这个问题，需要从根本出发，主动探测域名是否被污染。
 
@@ -245,3 +248,4 @@ sudo systemctl status clash@<user>
 
 # Changelog
 - 2019-08-21 改用 systemd-networkd 设置静态 IP 和 DHCP Server，不再使用 dhcpcd 和 isc-dhcp-server。(小声：systemd 要吃掉一切了嘛 qaq）
+- 2019-08-22 增添 Clash 配置文件正确路径的 troubleshooting
