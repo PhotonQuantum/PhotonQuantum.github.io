@@ -27,20 +27,6 @@ categories:
 
 Archlinux ARM 有对 Raspberry Pi 3 的官方支持，请查阅 [官方文档](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3)。以下配置都以 Archlinux ARM 为准。
 
-## 配置之前
-关闭烦人的 systemd-resolved，免得造成 DNS 被魔改，端口被占等麻烦。
-```
-sudo systemctl disable --now systemd-resolved
-```
-然后删除 /etc/resolv.conf 软链接，创建新的 resolv.conf，写入：
-```
-nameserver 223.5.5.5
-```
-防止别的 daemon 修改：
-```
-sudo chattr +i /etc/resolv.conf
-```
-
 ## Clash
 强力推荐 [Clash](https://github.com/Dreamacro/clash)，支持多种协议，自带 HTTP、SOCKS5、REDIR 代理，还带有一个简易的抗污染 DNS。而且，已经有不少代理服务提供商在给出 Clash 订阅配置文件了，更有提供了分流策略的商家，可以节省大量配置时间。
 
@@ -141,19 +127,21 @@ sudo systemctl enable --now iptables
 ## 设置静态 IP
 因为马上就要将 DHCP 指向派，就不能指望通过 DHCP 来获得树莓派的 IP、Gateway 等信息了。
 
-修改 DHCP Client 设置（/etc/dhcpcd.conf）：
+修改 systemd-networkd 设置（/etc/systemd/network/eth.network）：
 ```
-interface eth0
-static ip_address=<STATIC_IP>/24
-static routers=<ORIGIN_GATEWAY>
-static domain_name_servers=223.5.5.5
+[Match]    
+Name=eth*    
+    
+[Network]    
+DHCP=no    
+DNSSEC=no    
+DNS=223.5.5.5    
+Address=<STATIC_IP>/24    
+Gateway=<ORIGIN_GATEWAY>
 ```
 把 *\<STATIC_IP\>* 改成想指派给树莓派的 IP，*\<ORIGIN_GATEWAY\>* 改成原路由器 IP。
 
-然后启动 DHCP Client：
-```
-sudo systemctl enable --now dhcpcd
-```
+然后重启派，在新 IP 上连接就可以了。 
 
 ## 设置网关
 根据实际情况，二选一即可。
@@ -163,44 +151,29 @@ sudo systemctl enable --now dhcpcd
 
 ### dhcpd
 如果路由器不能设置默认网关，就需要在本地启动一个新的 DHCP Server，来告知局域网内机器新的网关。
+
+这里我们直接利用 systemd-networkd 提供的 DHCP Server，需要修改 /etc/systemd/network/eth.network 来启动它：
 ```
-sudo pacman -S dhcp
+[Match]    
+Name=eth*    
+    
+[Network]    
+DHCP=no    
+DHCPServer=yes    
+DNSSEC=no    
+DNS=223.5.5.5    
+Address=<STATIC_IP>/24    
+Gateway=<ORIGIN_GATEWAY>
+    
+[DHCPServer]    
+PoolOffset=5    
+EmitDNS=yes    
+DNS=<STATIC_IP>
+EmitRouter=yes    
+EmitTimezone=no
 ```
 
-然后修改 /etc/dhcpd.conf 的设置
-```
-option domain-name "example.org";
-option domain-name-servers ns1.example.org, ns2.example.org;
-
-default-lease-time 600;
-max-lease-time 7200;
-
-authoritative;
-
-subnet 192.168.1.0 netmask 255.255.255.0 {                                                            
-    range 192.168.1.5 192.168.1.254;                                                                  
-    option routers <STATIC_IP>;                                                                      
-    option broadcast-address 192.168.1.255;                                                           
-    default-lease-time 600;                                                                           
-    max-lease-time 7200;                                                                              
-    option domain-name-servers <STATIC_IP>;                                                          
-}
-```
-一定要将网段和掩码改成你网络的配置，将 *\<STATIC_IP\>* 改成给树莓派指派的 IP。
-
-随后启动 dhcpd
-```
-sudo systemctl enable --now dhcpd4
-```
-
-建议确认 DHCP Server 的运行状况，在 Linux 下可以用 dhcping 确认。
-```
-$ sudo dhcping -s <STATIC_IP>
-Got answer from: <STATIC_IP>
-```
-如果收到 No answer 表示配置有误，建议重新配置。
-
-当确认配置成功后，关闭路由器的 DHCP，重启树莓派，如果一切顺利，就大功告成了。
+随后，关闭路由器的 DHCP，重启树莓派，如果一切顺利，就大功告成了。
 
 # 尾声
 整个过程是有些繁琐的，其实挺容易弄错的（特别是 DHCP 服务器和静态 IP 分配时）。如果遇到问题，可以查询下方的 Troubleshooting 部分，也可以在下面评论。
@@ -240,18 +213,12 @@ $ sudo pacman -S bind-tools
 
 常见的问题有：
 
-- DHCP Server 因为种种原因没启动
-```
-sudo systemctl status dhcpd4
-```
-瞄一眼是不是有人占了端口，或者发生了什么奇怪的事情，然后 Google/Stack Overflow
-
 - 网关或者静态 IP 设置被其他 daemon 动掉了，或者配置有错
 ```
 ip addr show
 ip route
 ```
-看看路由和 IP 是不是配置错了。如果发现 ip route 的返回里有 DHCP 字样，说明 DHCP Client 没配置好，再检查一下，或者没有重启树莓派。如果 addr 和 route 不对，修改相应的配置文件。如果 route 返回为空，大半是 DHCP Client 没启动或者挂了，用 systemctl status 看看运行状态。当然，也有可能是因为有 typo，配置文件没有成功应用，记得仔细检查配置。
+看看路由和 IP 是不是配置错了。如果发现 ip route 的返回里有 DHCP 字样，或者 ip addr show 得到的 IP 有错，说明 systemd-networkd 没配置好，再检查一下，或者没有重启树莓派。
 
 - iptables 规则没有应用
 检查 iptables 服务有没有被 enable。
@@ -266,9 +233,6 @@ sudo systemctl status clash@<user>
 ```
 根据报错排查，有可能是端口被占用的问题，也可能是配置文件格式错误。
 
-### 所有的国内网站 DNS 全部查询失败
-检查 /etc/resolv.conf 是否配置正常。
-
 # 进阶
 其实 Clash 的 DNS 抗污染实现不是很优雅，会将连接速度尚可而又未被污染的部分海外网站解析到更远的 CDN 节点，这种情况往往发生在有香港节点的网站上。要完全避免这个问题，需要从根本出发，主动探测域名是否被污染。
 
@@ -278,3 +242,6 @@ sudo systemctl status clash@<user>
 
 # 后话
 啊 QAQ 我果然还是不适合写这种教程类文章，总觉得博客里写这种像 ArchWiki 一样的文章感觉很奇怪 TAT
+
+# Changelog
+- 2019-08-21 改用 systemd-networkd 设置静态 IP 和 DHCP Server，不再使用 dhcpcd 和 isc-dhcp-server。(小声：systemd 要吃掉一切了嘛 qaq）
