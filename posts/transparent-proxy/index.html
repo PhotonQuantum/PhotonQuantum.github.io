@@ -4,7 +4,7 @@
 </code></pre><p>防止别的 daemon 修改：</p><pre><code>sudo chattr +i /etc/resolv.conf
 </code></pre><h2 id=clash>Clash</h2><p>强力推荐 <a href=https://github.com/Dreamacro/clash>Clash</a>，支持多种协议，自带 HTTP、SOCKS5、REDIR 代理，还带有一个简易的抗污染 DNS。而且，已经有不少代理服务提供商在给出 Clash 订阅配置文件了，更有提供了分流策略的商家，可以节省大量配置时间。</p><p>Clash 并不在官方 Repository 中，需要自行到 aur 下载。</p><pre><code>git clone https://aur.archlinux.org/clash-bin.git
 cd clash-bin
-</code></pre><p>记得修改 PKGBUILD 文件，把 arch 从 x86-64 改成 armv7h，tar 文件地址里的 amd64 改成 armv7。然后打包安装。</p><pre><code>makepkg -si
+</code></pre><p>记得修改 PKGBUILD 文件，把 arch 从 x86-64 改成 armv7h，tar 文件地址里的 amd64 改成 armv7，sha256sums 的最后一个改成 SKIP。然后打包安装。</p><pre><code>makepkg -si
 </code></pre><p>关于标准配置不再赘述，假设已经部署基本代理和分流配置，REDIR 监听在 <em>&lt;REDIR_PORT&gt;</em> ，SOCKS5 监听在 <em>&lt;SOCKS_PORT&gt;</em> 。接下来需要配置简易的防污染 DNS。</p><p>Clash 有多种 DNS 模式，其中：</p><ul><li>redir-host
 首先查询不可信 DNS，如果返回了海外的 IP，则查询可信 DNS 并返回可信结果，如果返回国内 IP，就直接返回不可信结果。另外，此模式下所有的请求在转发时都发送 Host，而不是 IP，这样即使得到了污染 IP，远端仍然能解析出正确的 IP。</li><li>fake-ip
 直接返回虚 IP，当收到代理请求时再让远端解析成正确 IP。</li></ul><p>为了防止设备本地的 DNS Cache 被弄脏，这里使用 redir-host 模式。在配置文件里加这么一段：</p><pre><code>dns:
