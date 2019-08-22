@@ -111,7 +111,7 @@ sudo systemctl enable --now dnscrypt-proxy
 sudo iptables -t nat -A PREROUTING -i eth0 -p tcp -j REDIRECT --to-ports 9090
 sudo iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 9653
 sudo iptables -t nat -A OUTPUT -d 127.0.0.1/32 -p udp -m udp --dport 53 -j REDIRECT --to-ports 9653
-sudo iptables -t nat -A POSTROUTING -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING ! -d 127.0.0.0/8 -j MASQUERADE
 ```
 
 然后持久化配置（记得要有 root 权限）：
@@ -249,3 +249,4 @@ sudo systemctl status clash@<user>
 # Changelog
 - 2019-08-21 改用 systemd-networkd 设置静态 IP 和 DHCP Server，不再使用 dhcpcd 和 isc-dhcp-server。(小声：systemd 要吃掉一切了嘛 qaq）
 - 2019-08-22 增添 Clash 配置文件正确路径的 troubleshooting
+- 2019-08-22 改写 iptables 规则，以使 Erlang 可以正常运行
