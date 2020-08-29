@@ -1,4 +1,4 @@
-baseURL = "https://lightquantum.me"
+baseURL = "https://legacy.lightquantum.me"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 title = "光子の胡话"                    # site title  # 网站标题
@@ -41,7 +41,7 @@ disqusShortname = ""                 # your discuss shortname
   subTitle = "一颗正在寻求解脱的迷茫心灵。"                                       # site's subTitle  # 网站二级标题
   footerSlogan = "长草的精神家园"                                          # site's footer slogan  # 网站页脚标语
   # keywords = ["Hugo", "theme","zozo"]                                  # site's keywords  # 网站关键字
-  description = "LightQuantum 的博客"                        # site's description  # 网站描述
+  description = "LightQuantum 的博客 (legacy)"                        # site's description  # 网站描述
 
 # mathjax
   enableMathJax = false                                                 # enable mathjax  # 是否使用mathjax（数学公式）
