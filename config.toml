@@ -9,6 +9,7 @@ paginate = 7                         # shows the number of articles  # 首页显
 enableEmoji = true
 googleAnalytics = ""                 # your google analytics id
 disqusShortname = ""                 # your discuss shortname
+buildFuture = true
 
 [author]                             # essential                     # 必需
   name = "LightQuantum"
